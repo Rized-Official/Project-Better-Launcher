@@ -18,7 +18,7 @@ namespace ProjectBetterLauncher.Views;
 
 public partial class MainWindow : Window
 {
-    private string _coverSoundPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Sounds", "UI_Button_Hover.wav");
+    private string _hoverSoundPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Sounds", "UI_Button_Hover.wav");
     private string _clickSoundPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Sounds", "UI_Button_Press.wav");
     private string _currentState;
 
@@ -199,9 +199,11 @@ public partial class MainWindow : Window
         }
     }
 
+    
+    // Hover sound
     private void InputElement_OnPointerEntered(object? sender, PointerEventArgs e)
     {
-        App.PlaySound(_coverSoundPath);
+        App.PlaySound(_hoverSoundPath);
     }
 
     private void CloseTheGame_OnClick(object? sender, RoutedEventArgs e)
