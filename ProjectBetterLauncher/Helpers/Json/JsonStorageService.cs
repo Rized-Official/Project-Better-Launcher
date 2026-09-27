@@ -42,7 +42,7 @@ public static class JsonStorageService
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"[JsonStorage] Błąd odczytu z pliku {fileName}: {ex.Message}");
+            Console.WriteLine($"[JSON] Couldn't read file: {fileName}: {ex.Message}");
             return defaultValue;
         }
     }
