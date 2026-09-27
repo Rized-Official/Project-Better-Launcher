@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fraYHBbkHvU=",
+  "dgSpecHash": "dq26sazV6UE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Adam\\Pictures\\ProjectBetterLauncher\\ProjectBetterLauncher\\ProjectBetterLauncher.csproj",
+  "projectFilePath": "C:\\Users\\Adam\\Videos\\ProjectBetter\\Launcher\\ProjectBetterLauncher\\ProjectBetterLauncher\\ProjectBetterLauncher.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Adam\\.nuget\\packages\\avalonia\\12.1.2\\avalonia.12.1.2.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.27548.20260419\\avalonia.angle.windows.natives.2.1.27548.20260419.nupkg.sha512",
@@ -57,9 +57,9 @@
       "code": "NU1904",
       "level": "Warning",
       "message": "Package 'System.Drawing.Common' 4.7.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-rxg9-xrhp-64gj",
-      "projectPath": "C:\\Users\\Adam\\Pictures\\ProjectBetterLauncher\\ProjectBetterLauncher\\ProjectBetterLauncher.csproj",
+      "projectPath": "C:\\Users\\Adam\\Videos\\ProjectBetter\\Launcher\\ProjectBetterLauncher\\ProjectBetterLauncher\\ProjectBetterLauncher.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Adam\\Pictures\\ProjectBetterLauncher\\ProjectBetterLauncher\\ProjectBetterLauncher.csproj",
+      "filePath": "C:\\Users\\Adam\\Videos\\ProjectBetter\\Launcher\\ProjectBetterLauncher\\ProjectBetterLauncher\\ProjectBetterLauncher.csproj",
       "libraryId": "System.Drawing.Common",
       "targetGraphs": [
         "net10.0-windows10.0.17763.0"

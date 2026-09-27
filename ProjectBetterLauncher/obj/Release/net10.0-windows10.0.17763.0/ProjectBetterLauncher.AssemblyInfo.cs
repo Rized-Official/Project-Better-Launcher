@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProjectBetterLauncher")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0649e58884d642b53fae1d7ea6ce0d0b6eca5425")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+965eca4a7deee1f00200e6f9ce6372c243a44cc3")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProjectBetterLauncher")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProjectBetterLauncher")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

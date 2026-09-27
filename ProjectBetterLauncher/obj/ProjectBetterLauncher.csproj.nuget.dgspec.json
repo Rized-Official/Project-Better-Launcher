@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Adam\\Pictures\\ProjectBetterLauncher\\ProjectBetterLauncher\\ProjectBetterLauncher.csproj": {}
+    "C:\\Users\\Adam\\Videos\\ProjectBetter\\Launcher\\ProjectBetterLauncher\\ProjectBetterLauncher\\ProjectBetterLauncher.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Adam\\Pictures\\ProjectBetterLauncher\\ProjectBetterLauncher\\ProjectBetterLauncher.csproj": {
+    "C:\\Users\\Adam\\Videos\\ProjectBetter\\Launcher\\ProjectBetterLauncher\\ProjectBetterLauncher\\ProjectBetterLauncher.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Adam\\Pictures\\ProjectBetterLauncher\\ProjectBetterLauncher\\ProjectBetterLauncher.csproj",
+        "projectUniqueName": "C:\\Users\\Adam\\Videos\\ProjectBetter\\Launcher\\ProjectBetterLauncher\\ProjectBetterLauncher\\ProjectBetterLauncher.csproj",
         "projectName": "ProjectBetterLauncher",
-        "projectPath": "C:\\Users\\Adam\\Pictures\\ProjectBetterLauncher\\ProjectBetterLauncher\\ProjectBetterLauncher.csproj",
+        "projectPath": "C:\\Users\\Adam\\Videos\\ProjectBetter\\Launcher\\ProjectBetterLauncher\\ProjectBetterLauncher\\ProjectBetterLauncher.csproj",
         "packagesPath": "C:\\Users\\Adam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Adam\\Pictures\\ProjectBetterLauncher\\ProjectBetterLauncher\\obj\\",
+        "outputPath": "C:\\Users\\Adam\\Videos\\ProjectBetter\\Launcher\\ProjectBetterLauncher\\ProjectBetterLauncher\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Adam\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -65,8 +65,6 @@
               "version": "[12.1.2, )"
             },
             "AvaloniaUI.DiagnosticsSupport": {
-              "include": "None",
-              "suppressParent": "All",
               "target": "Package",
               "version": "[2.2.3, )"
             },
