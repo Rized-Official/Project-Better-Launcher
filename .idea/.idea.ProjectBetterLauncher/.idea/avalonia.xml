@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="ProjectBetterLauncher/App.axaml" value="ProjectBetterLauncher/ProjectBetterLauncher.csproj" />
+        <entry key="ProjectBetterLauncher/Views/Launcher.axaml" value="ProjectBetterLauncher/ProjectBetterLauncher.csproj" />
+        <entry key="ProjectBetterLauncher/Views/MainWindow.axaml" value="ProjectBetterLauncher/ProjectBetterLauncher.csproj" />
+        <entry key="ProjectBetterLauncher/Views/Settings.axaml" value="ProjectBetterLauncher/ProjectBetterLauncher.csproj" />
+        <entry key="ProjectBetterLauncher/Views/TopBar.axaml" value="ProjectBetterLauncher/ProjectBetterLauncher.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

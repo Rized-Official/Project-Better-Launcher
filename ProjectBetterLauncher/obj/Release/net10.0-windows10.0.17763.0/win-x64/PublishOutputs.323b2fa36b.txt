@@ -1,0 +1,4 @@
+C:\Users\Adam\Pictures\ProjectBetterLauncher\ProjectBetterLauncher\Builded\ProjectBetterLauncher.pdb
+C:\Users\Adam\Pictures\ProjectBetterLauncher\ProjectBetterLauncher\Builded\libHarfBuzzSharp.pdb
+C:\Users\Adam\Pictures\ProjectBetterLauncher\ProjectBetterLauncher\Builded\libSkiaSharp.pdb
+C:\Users\Adam\Pictures\ProjectBetterLauncher\ProjectBetterLauncher\Builded\ProjectBetterLauncher.exe

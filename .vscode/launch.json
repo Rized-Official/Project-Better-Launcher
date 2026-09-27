@@ -1,0 +1,11 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Avalonia: ProjectBetterLauncher",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/ProjectBetterLauncher/ProjectBetterLauncher.csproj"
+        }
+    ]
+}

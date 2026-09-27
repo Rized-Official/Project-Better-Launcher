@@ -1,0 +1,43 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:views="using:ProjectBetterLauncher.Views"
+             x:Class="ProjectBetterLauncher.App"
+             xmlns:local="using:ProjectBetterLauncher"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator />
+    </Application.DataTemplates>
+
+    <Application.Resources>
+        <FontFamily x:Key="VCR">avares://ProjectBetterLauncher/Assets/Fonts#VCR OSD MONO</FontFamily>
+        <FontFamily x:Key="Cartoon">avares://ProjectBetterLauncher/Assets/Fonts#Cartoon Fun</FontFamily>
+    </Application.Resources>
+
+    <Application.Styles>
+        <FluentTheme />
+        <Style Selector="Window">
+            <Setter Property="FontFamily" Value="{StaticResource Cartoon}"></Setter>
+            
+            <Setter Property="ExtendClientAreaToDecorationsHint" Value="True"/>
+            <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="-1"/>
+            <Setter Property="TransparencyLevelHint" Value="Transparent"/>
+            <Setter Property="Background" Value="Transparent"/>
+            
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Panel>
+                        <ContentPresenter Content="{TemplateBinding Content}" 
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                          Padding="{TemplateBinding Padding}" 
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"></ContentPresenter>
+                        
+                        <views:TopBar VerticalAlignment="Top"></views:TopBar>
+                    </Panel>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </Application.Styles>
+</Application>

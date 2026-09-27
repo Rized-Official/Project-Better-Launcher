@@ -1,0 +1,42 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ProjectBetterLauncher.Views.TopBar"
+             FontFamily="{StaticResource VCR}">
+    
+    <Panel VerticalAlignment="Top">
+        <Rectangle IsHitTestVisible="False" Width="200" Height="30" Fill="rgba(0, 0, 0, 0.29)" HorizontalAlignment="Center" VerticalAlignment="Top"></Rectangle>
+        <Rectangle IsHitTestVisible="False" Width="110" Height="30" Fill="rgba(0, 0, 0, 0.29)" HorizontalAlignment="Left" VerticalAlignment="Top"></Rectangle>
+        <Rectangle IsHitTestVisible="False" Width="186" Height="30" Fill="rgba(0, 0, 0, 0.29)" HorizontalAlignment="Right" VerticalAlignment="Top"></Rectangle>
+        <TextBlock Foreground="White"
+                   FontSize="10"
+                   IsHitTestVisible="False"
+                   Margin="10"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left">
+            <TextBlock.Effect>
+                <DropShadowEffect></DropShadowEffect>
+            </TextBlock.Effect>
+            
+            Project: Better
+        </TextBlock>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Foreground="White"
+                       FontSize="10"
+                       Margin="10"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center"
+                       IsHitTestVisible="False"
+                       Name="LauncherStateText">
+                <TextBlock.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </TextBlock.Effect>
+            
+                Launching...
+            </TextBlock>
+            <Image Source="avares://ProjectBetterLauncher/Assets/icon.ico" Width="15" Margin="-10, -8, 0, -4" ></Image>
+        </StackPanel>
+    </Panel>
+</UserControl>
