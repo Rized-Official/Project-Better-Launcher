@@ -76,7 +76,7 @@
                 />
         </UserControl>
         
-        <TextBlock TextElement.FontFamily="{StaticResource VCR}" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Bottom">v0.0.1</TextBlock>
+        <TextBlock TextElement.FontFamily="{StaticResource VCR}" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Bottom">v0.0.1af1</TextBlock>
 
         <StackPanel VerticalAlignment="Center" 
                 HorizontalAlignment="Center">
@@ -271,5 +271,6 @@
             </Border>
         </Panel>
         <views:Settings IsVisible="False" Name="Settings"></views:Settings>
+        <views:HowToInstall IsVisible="True" Name="HowToInstall"></views:HowToInstall>
     </Panel>
 </Window>

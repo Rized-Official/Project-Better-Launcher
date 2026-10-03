@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dq26sazV6UE=",
+  "dgSpecHash": "Puj/EtuzE7M=",
   "success": true,
   "projectFilePath": "C:\\Users\\Adam\\Videos\\ProjectBetter\\Launcher\\ProjectBetterLauncher\\ProjectBetterLauncher\\ProjectBetterLauncher.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,10 @@
     "C:\\Users\\Adam\\.nuget\\packages\\avaloniaui.diagnosticssupport\\2.2.3\\avaloniaui.diagnosticssupport.2.2.3.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.2\\communitytoolkit.mvvm.8.4.2.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\discordrichpresence\\1.6.1.70\\discordrichpresence.1.6.1.70.nupkg.sha512",
+    "C:\\Users\\Adam\\.nuget\\packages\\google.apis\\1.76.0\\google.apis.1.76.0.nupkg.sha512",
+    "C:\\Users\\Adam\\.nuget\\packages\\google.apis.auth\\1.76.0\\google.apis.auth.1.76.0.nupkg.sha512",
+    "C:\\Users\\Adam\\.nuget\\packages\\google.apis.core\\1.76.0\\google.apis.core.1.76.0.nupkg.sha512",
+    "C:\\Users\\Adam\\.nuget\\packages\\google.apis.drive.v3\\1.76.0.4273\\google.apis.drive.v3.1.76.0.4273.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\harfbuzzsharp\\8.3.1.3\\harfbuzzsharp.8.3.1.3.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\harfbuzzsharp.nativeassets.linux\\8.3.1.3\\harfbuzzsharp.nativeassets.linux.8.3.1.3.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\8.3.1.3\\harfbuzzsharp.nativeassets.macos.8.3.1.3.nupkg.sha512",
@@ -47,7 +51,9 @@
     "C:\\Users\\Adam\\.nuget\\packages\\skiasharp.nativeassets.macos\\3.119.4\\skiasharp.nativeassets.macos.3.119.4.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\skiasharp.nativeassets.webassembly\\3.119.4\\skiasharp.nativeassets.webassembly.3.119.4.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\skiasharp.nativeassets.win32\\3.119.4\\skiasharp.nativeassets.win32.3.119.4.nupkg.sha512",
+    "C:\\Users\\Adam\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
+    "C:\\Users\\Adam\\.nuget\\packages\\system.management\\7.0.2\\system.management.7.0.2.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\system.numerics.tensors\\9.0.0\\system.numerics.tensors.9.0.0.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\tmds.dbus.protocol\\0.94.1\\tmds.dbus.protocol.0.94.1.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.17763.57\\microsoft.windows.sdk.net.ref.10.0.17763.57.nupkg.sha512"

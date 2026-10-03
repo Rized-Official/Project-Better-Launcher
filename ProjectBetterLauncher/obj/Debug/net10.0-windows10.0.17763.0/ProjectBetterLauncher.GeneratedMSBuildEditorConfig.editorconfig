@@ -44,6 +44,9 @@ build_property.EnableCodeStyleSeverity =
 [C:/Users/Adam/Videos/ProjectBetter/Launcher/ProjectBetterLauncher/ProjectBetterLauncher/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/Users/Adam/Videos/ProjectBetter/Launcher/ProjectBetterLauncher/ProjectBetterLauncher/Views/HowToInstall.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/Adam/Videos/ProjectBetter/Launcher/ProjectBetterLauncher/ProjectBetterLauncher/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 

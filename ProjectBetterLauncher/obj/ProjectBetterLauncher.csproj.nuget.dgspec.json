@@ -76,6 +76,10 @@
               "target": "Package",
               "version": "[1.6.1.70, )"
             },
+            "Google.Apis.Drive.v3": {
+              "target": "Package",
+              "version": "[1.76.0.4273, )"
+            },
             "Microsoft.Toolkit.Uwp.Notifications": {
               "target": "Package",
               "version": "[7.1.3, )"

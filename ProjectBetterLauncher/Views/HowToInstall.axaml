@@ -1,0 +1,77 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ProjectBetterLauncher.Views.HowToInstall"
+             Background="rgba(0, 0, 0, 0.5)"
+             Loaded="HowToInstall_OnLoaded">
+    
+    <Panel>
+        <Border BorderBrush="White" BorderThickness="3" Height="110">
+            <Rectangle HorizontalAlignment="Center" VerticalAlignment="Center" Width="90000" Height="105" Fill="Black"></Rectangle>
+        </Border>
+        <Image Source="avares://ProjectBetterLauncher/Assets/PJBTLogo.png" Width="300">
+            <Image.RenderTransform>
+                <TranslateTransform Y="-80"></TranslateTransform>
+            </Image.RenderTransform>
+        </Image>
+        <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center">To install Project: Better you need to have Project: Playtime installed on Steam.</TextBlock>
+        <!-- Button Start -->
+            <Border BorderBrush="White"
+                    IsVisible="True"
+                    Name="Okay"
+                    BorderThickness="3" 
+                    Width="400"
+                    Height="50"
+                    VerticalAlignment="Bottom" Margin="50">
+                <Border.Styles>
+                    <Style Selector="Border">
+                        <Setter Property="RenderTransform" Value="scale(1)"/>
+                        <Setter Property="Transitions">
+                            <Transitions>
+                                <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
+                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseInOut"/>
+                            </Transitions>
+                        </Setter>
+                    </Style>
+
+                    <Style Selector="Border:pointerover">
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="RenderTransform" Value="scale(1.1)"/>
+                    </Style>
+                </Border.Styles>
+                <Panel>
+                    <Button Foreground="White" 
+                            CornerRadius="0"
+                            Click="Understood_OnClick"
+                            PointerEntered="Understood_OnPointerEntered"
+                            Cursor="Hand"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center" 
+                            VerticalContentAlignment="Center"
+                            Background="Black" 
+                            VerticalAlignment="Center" 
+                            Height="40"
+                            FontSize="20"
+                            TextElement.FontFamily="{StaticResource VCR}">
+                        <Button.Styles>
+                            <Style Selector="Button">
+                                <Setter Property="Foreground" Value="White"></Setter>
+                            </Style>
+                            <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                <Setter Property="Foreground" Value="Black"></Setter>
+                            </Style>
+                            <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                                <Setter Property="Foreground" Value="White"></Setter>
+                                <Setter Property="Background" Value="Black"></Setter>
+                            </Style>
+                        </Button.Styles>
+                        Understood
+                    </Button>
+                </Panel>
+            </Border>
+            
+            <!-- Button End -->
+    </Panel>
+</UserControl>

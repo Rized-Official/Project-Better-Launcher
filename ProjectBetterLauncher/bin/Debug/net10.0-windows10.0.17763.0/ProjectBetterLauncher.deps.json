@@ -15,6 +15,7 @@
           "AvaloniaUI.DiagnosticsSupport": "2.2.3",
           "CommunityToolkit.Mvvm": "8.4.2",
           "DiscordRichPresence": "1.6.1.70",
+          "Google.Apis.Drive.v3": "1.76.0.4273",
           "Microsoft.Toolkit.Uwp.Notifications": "7.1.3",
           "NAudio": "3.1.0",
           "Newtonsoft.Json": "13.0.4",
@@ -280,6 +281,53 @@
           "lib/net9.0/DiscordRPC.dll": {
             "assemblyVersion": "1.6.1.70",
             "fileVersion": "1.6.1.70"
+          }
+        }
+      },
+      "Google.Apis/1.76.0": {
+        "dependencies": {
+          "Google.Apis.Core": "1.76.0"
+        },
+        "runtime": {
+          "lib/net6.0/Google.Apis.dll": {
+            "assemblyVersion": "1.76.0.0",
+            "fileVersion": "1.76.0.0"
+          }
+        }
+      },
+      "Google.Apis.Auth/1.76.0": {
+        "dependencies": {
+          "Google.Apis": "1.76.0",
+          "Google.Apis.Core": "1.76.0",
+          "System.Management": "7.0.2"
+        },
+        "runtime": {
+          "lib/net6.0/Google.Apis.Auth.dll": {
+            "assemblyVersion": "1.76.0.0",
+            "fileVersion": "1.76.0.0"
+          }
+        }
+      },
+      "Google.Apis.Core/1.76.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.4"
+        },
+        "runtime": {
+          "lib/net6.0/Google.Apis.Core.dll": {
+            "assemblyVersion": "1.76.0.0",
+            "fileVersion": "1.76.0.0"
+          }
+        }
+      },
+      "Google.Apis.Drive.v3/1.76.0.4273": {
+        "dependencies": {
+          "Google.Apis": "1.76.0",
+          "Google.Apis.Auth": "1.76.0"
+        },
+        "runtime": {
+          "lib/net6.0/Google.Apis.Drive.v3.dll": {
+            "assemblyVersion": "1.76.0.4273",
+            "fileVersion": "1.76.0.4273"
           }
         }
       },
@@ -667,6 +715,22 @@
           }
         }
       },
+      "System.Management/7.0.2": {
+        "runtime": {
+          "lib/net7.0/System.Management.dll": {
+            "assemblyVersion": "7.0.0.2",
+            "fileVersion": "7.0.723.27404"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net7.0/System.Management.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "7.0.0.2",
+            "fileVersion": "7.0.723.27404"
+          }
+        }
+      },
       "System.Numerics.Tensors/9.0.0": {
         "runtime": {
           "lib/net9.0/System.Numerics.Tensors.dll": {
@@ -807,6 +871,34 @@
       "sha512": "sha512-yho1fdhbsedICHdfHe/Tu3IX6a5oj4fiPFL0keZStlsh7T/FrdjcwZZ7C1uC2HUvcXbFh+VEJvcbo1W66QtkUg==",
       "path": "discordrichpresence/1.6.1.70",
       "hashPath": "discordrichpresence.1.6.1.70.nupkg.sha512"
+    },
+    "Google.Apis/1.76.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sIhJW2vT1cXE/yUFp1q1Mv7EUgbGu2uMIcqqv+BgElRdGQApxiYpZ/jG6hFkQB8/AG9kGurJOzLOM9PZ++GEtA==",
+      "path": "google.apis/1.76.0",
+      "hashPath": "google.apis.1.76.0.nupkg.sha512"
+    },
+    "Google.Apis.Auth/1.76.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WzRCykQ0OApOEFdUYYBJ6riIxs+xk635s0KsGb83zJcABa66DCgaAXiWZuZjSqnwA3hjm7u8mmzR4EUHpJ1UfQ==",
+      "path": "google.apis.auth/1.76.0",
+      "hashPath": "google.apis.auth.1.76.0.nupkg.sha512"
+    },
+    "Google.Apis.Core/1.76.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-P2nFbC0SsnUe8sGjhpCLs6CHIWFzURgUS2M9l9aUV1vJjVXpesRbegEYZS/dLKehcgx8twDP7xA5OMGygMD55g==",
+      "path": "google.apis.core/1.76.0",
+      "hashPath": "google.apis.core.1.76.0.nupkg.sha512"
+    },
+    "Google.Apis.Drive.v3/1.76.0.4273": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xsk6G7Vga0M77SVTF+mpsoyBzxepEQEYoyi1M5uK9WVHVHf0mVzqUrIvknO1Prf7yjnEXSXY7FtNc5Q+Q1CorA==",
+      "path": "google.apis.drive.v3/1.76.0.4273",
+      "hashPath": "google.apis.drive.v3.1.76.0.4273.nupkg.sha512"
     },
     "HarfBuzzSharp/8.3.1.3": {
       "type": "package",
@@ -961,6 +1053,13 @@
       "sha512": "sha512-XOpbx/4CReO2wYsq2s6rbvdauc6dntG4Zv499sHGTJ87bwZaFXszFkwql3+FIZMc8kUPeaj3Mx2ezIJmo8a1Kg==",
       "path": "skiasharp.nativeassets.win32/3.119.4",
       "hashPath": "skiasharp.nativeassets.win32.3.119.4.nupkg.sha512"
+    },
+    "System.Management/7.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/qEUN91mP/MUQmJnM5y5BdT7ZoPuVrtxnFlbJ8a3kBJGhe2wCzBfnPFtK2wTtEEcf3DMGR9J00GZZfg6HRI6yA==",
+      "path": "system.management/7.0.2",
+      "hashPath": "system.management.7.0.2.nupkg.sha512"
     },
     "System.Numerics.Tensors/9.0.0": {
       "type": "package",
