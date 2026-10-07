@@ -7,9 +7,11 @@
              FontFamily="{StaticResource VCR}">
     
     <Panel VerticalAlignment="Top">
+        <Border WindowDecorationProperties.ElementRole="TitleBar">
+            <Rectangle IsHitTestVisible="True" Width="2000" Height="30" Fill="rgba(0, 0, 0, 0.2)" HorizontalAlignment="Center" VerticalAlignment="Top" ></Rectangle>
+        </Border>
         <Rectangle IsHitTestVisible="False" Width="200" Height="30" Fill="rgba(0, 0, 0, 0.29)" HorizontalAlignment="Center" VerticalAlignment="Top"></Rectangle>
         <Rectangle IsHitTestVisible="False" Width="110" Height="30" Fill="rgba(0, 0, 0, 0.29)" HorizontalAlignment="Left" VerticalAlignment="Top"></Rectangle>
-        <Rectangle IsHitTestVisible="False" Width="186" Height="30" Fill="rgba(0, 0, 0, 0.29)" HorizontalAlignment="Right" VerticalAlignment="Top"></Rectangle>
         <TextBlock Foreground="White"
                    FontSize="10"
                    IsHitTestVisible="False"
@@ -22,6 +24,40 @@
             
             Project: Better
         </TextBlock>
+        <Button Click="CloseLauncher_OnClick" ClipToBounds="False" HorizontalAlignment="Right" VerticalAlignment="Top" Background="Red" Height="30"  CornerRadius="0" Margin="0,0,0,0" Width="30" Foreground="White">
+            <TextBlock
+                FontFamily="{StaticResource Cartoon}"
+                TextAlignment="Center"
+                >
+                X
+                <TextBlock.RenderTransform>
+                    <TranslateTransform Y="-2.5"></TranslateTransform>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+        </Button>
+        <Button Click="Maximize_OnClick" ClipToBounds="False" HorizontalAlignment="Right" VerticalAlignment="Top" Background="rgba(0,0,0,0.5)" Height="30"  CornerRadius="0" Margin="0,0,30,0" Width="30" Foreground="White">
+            <TextBlock
+                FontFamily="{StaticResource Cartoon}"
+                TextAlignment="Center"
+            >
+                ■
+                <TextBlock.RenderTransform>
+                    <TranslateTransform Y="-2.5"></TranslateTransform>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+        </Button>
+        
+        <Button Click="Minimize_OnClick" ClipToBounds="False" HorizontalAlignment="Right" VerticalAlignment="Top" Background="rgba(0,0,0,0.5)" Height="30"  CornerRadius="0" Margin="0,0,60,0" Width="30" Foreground="White">
+            <TextBlock
+                FontFamily="{StaticResource Cartoon}"
+                TextAlignment="Center"
+            >
+                -
+                <TextBlock.RenderTransform>
+                    <TranslateTransform Y="-2.5"></TranslateTransform>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+        </Button>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock Foreground="White"
                        FontSize="10"

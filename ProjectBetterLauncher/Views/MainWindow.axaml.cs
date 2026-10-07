@@ -4,6 +4,9 @@ using Microsoft.Toolkit.Uwp.Notifications;
 using System.IO;
 using System;
 using System.Collections.Generic;
+using System.IO.Compression;
+using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Input;
 using Avalonia.Interactivity;
@@ -13,6 +16,11 @@ using NAudio.Wave;
 using ProjectBetterLauncher.Helpers.Discord.RPC;
 using ProjectBetterLauncher.Helpers.Json;
 using Avalonia.Platform.Storage;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Drive.v3;
+using Google.Apis.Services;
+using Google.Apis.Util.Store;
+using ProjectBetterLauncher.Helpers.Steam;
 
 namespace ProjectBetterLauncher.Views;
 
@@ -21,6 +29,19 @@ public partial class MainWindow : Window
     private string _hoverSoundPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Sounds", "UI_Button_Hover.wav");
     private string _clickSoundPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Sounds", "UI_Button_Press.wav");
     private string _currentState;
+    private DispatcherTimer? _gameWatcher;
+    public string gameLocation;
+    
+    public static bool IsProcessRunning(string processName)
+    {
+        Process[] processes = Process.GetProcessesByName(processName);
+        bool running = processes.Length > 0;
+
+        foreach (Process process in processes)
+            process.Dispose();
+
+        return running;
+    }
 
     public static string StateAtTheMoment;
     
@@ -35,20 +56,44 @@ public partial class MainWindow : Window
     
     public MainWindow()
     {
-        InitializeComponent();
+        _currentSettings = JsonStorageService.Load(SettingsFile, new AppSettings());
+        
+        if (string.IsNullOrEmpty(_currentSettings.GameLocation) || !Directory.Exists(_currentSettings.GameLocation))
+        {
+            string? foundLocation = SteamHelper.FindGame();
 
+            if (foundLocation != null)
+            {
+                _currentSettings.GameLocation = foundLocation;
+                JsonStorageService.Save(SettingsFile, _currentSettings);
+            }
+        }
+
+        gameLocation = _currentSettings.GameLocation;
+        
+        OpinionManager.SendOpinion("Test");
+        
+        InitializeComponent();
+        
         Instance = this;
         
         ToastNotificationManagerCompat.OnActivated -= OnToastActivated;
         ToastNotificationManagerCompat.OnActivated += OnToastActivated;
         
         StateAtTheMoment = "In Launcher";
-        
-        _currentSettings = JsonStorageService.Load(SettingsFile, new AppSettings());
     }
 
     private void MainWindow_OnLoaded(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
+        if (_currentSettings.AcceptedInstalled == false)
+        {
+            HowToInstall.IsVisible = true;
+        }
+        else
+        {
+            HowToInstall.IsVisible = false;
+        }
+        
         DiscordRPCManager.Initialize("1550895344668254299");
         
         if (_currentSettings.DiscordRPC == true)
@@ -121,6 +166,11 @@ public partial class MainWindow : Window
 
     private async void PlayButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
+        OpenGame();
+    }
+
+    private async void OpenGame()
+    {
         // Buttons
         PlayButton.IsVisible = false;
         StopButton.IsVisible = true;
@@ -141,6 +191,7 @@ public partial class MainWindow : Window
         StateAtTheMoment = "In Game";
         
         TopBar.SetState(StateAtTheMoment);
+        StartWatchingGame();
         
         // Path to the logo
         string logoPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "PJBTLogo.png");
@@ -181,7 +232,6 @@ public partial class MainWindow : Window
     // Closing the game
     public void CloseGame()
     {
-
         try
         {
             Process[] processes = Process.GetProcessesByName(GameProcessName);
@@ -227,5 +277,27 @@ public partial class MainWindow : Window
         TopBar.SetState("In Settings");
         
         Settings.IsVisible =  true;
+    }
+    
+    private void StartWatchingGame()
+    {
+        _gameWatcher = new DispatcherTimer { Interval = TimeSpan.FromSeconds(3) };
+
+        _gameWatcher.Tick += (s, e) =>
+        {
+            if (!IsProcessRunning(GameProcessName))
+            {
+                _gameWatcher.Stop();
+
+                StateAtTheMoment = "In Launcher";
+                TopBar.SetState(StateAtTheMoment);
+                StopButton.IsVisible = false;
+                PlayButton.IsVisible = true;
+                StatusText.Text = "Press \"Play\" to launch the game!";
+                WindowState = WindowState.Normal;
+            }
+        };
+
+        _gameWatcher.Start();
     }
 }

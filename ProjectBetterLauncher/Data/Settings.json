@@ -1,5 +1,7 @@
 ﻿{
   "DiscordRPC": true,
   "AcceptedInstalled": false,
-  "BackgroundName": "defaultbackground.jpg"
+  "BackgroundName": "defaultbackground.jpg",
+  "GameLocation": "",
+  "SharedOpinion": false
 }

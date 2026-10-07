@@ -15,7 +15,8 @@
         ExtendClientAreaToDecorationsHint="True"
         ExtendClientAreaTitleBarHeightHint="-1"
         Foreground="Transparent"
-        FontFamily="{StaticResource VCR}">
+        FontFamily="{StaticResource VCR}"
+        WindowDecorations="BorderOnly">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -271,6 +272,6 @@
             </Border>
         </Panel>
         <views:Settings IsVisible="False" Name="Settings"></views:Settings>
-        <views:HowToInstall IsVisible="True" Name="HowToInstall"></views:HowToInstall>
+        <views:HowToInstall IsVisible="False" Name="HowToInstall"></views:HowToInstall>
     </Panel>
 </Window>

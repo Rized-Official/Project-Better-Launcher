@@ -3,11 +3,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="ProjectBetterLauncher.Views.Settings">
+             x:Class="ProjectBetterLauncher.Views.Settings"
+             Background="rgba(0,0,0,0.5)">
     
     
     <Panel>
-        <Rectangle  Width="700" Height="500" Fill="rgba(0, 0, 0, 0.5)" Stretch="UniformToFill" IsHitTestVisible="True"></Rectangle>
             <TextBlock Width="100" FontFamily="{StaticResource Cartoon}" HorizontalAlignment="Center" Margin="40" Foreground="White" FontSize="15" TextAlignment="Center">
                 Settings
                 <TextBlock.Effect>
@@ -147,7 +147,7 @@
         </StackPanel>
         
             <Panel>
-                <CheckBox Name="DiscordRpcCheckBox" IsCheckedChanged="DiscordRPC_OnIsCheckedChanged" HorizontalAlignment="Center" RenderTransform="scale(1.5)" Foreground="White" FontSize="15">
+                <CheckBox Name="DiscordRpcCheckBox" IsCheckedChanged="DiscordRPC_OnIsCheckedChanged" HorizontalAlignment="Center" RenderTransform="scale(1.5)" Foreground="White" FontSize="15" FontFamily="{StaticResource Cartoon}">
                     Discord Rich Presence
                     <CheckBox.Styles>
                         <Style Selector="CheckBox:pointerover">
@@ -156,6 +156,13 @@
                     </CheckBox.Styles>
                 </CheckBox>
             </Panel>
+                   
+                   <TextBlock Opacity="0.5" FontSize="8" Name="GameLocationText" FontFamily="{StaticResource Cartoon}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White">
+                       Game Location
+                       <TextBlock.RenderTransform>
+                           <TranslateTransform Y="30"></TranslateTransform>
+                       </TextBlock.RenderTransform>
+                   </TextBlock>
             <!-- Button start -->
             <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top">
                         <Panel HorizontalAlignment="Center" VerticalAlignment="Top">

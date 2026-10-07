@@ -35,6 +35,10 @@ public partial class Settings : UserControl
         {
             DiscordRpcCheckBox.IsChecked = false;
         }
+        
+        GameLocationText.Text = string.IsNullOrEmpty(_currentSettings.GameLocation)
+            ? "Game not found"
+            : _currentSettings.GameLocation;
     }
 
     private void BackButton_OnClick(object? sender, RoutedEventArgs e)
@@ -127,6 +131,7 @@ public partial class Settings : UserControl
     {
         _currentSettings.DiscordRPC = true;
         _currentSettings.BackgroundName = "defaultbackground.jpg";
+        _currentSettings.AcceptedInstalled = false;
         
         JsonStorageService.Save(_settingsFile, _currentSettings);
         

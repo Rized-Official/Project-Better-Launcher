@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Puj/EtuzE7M=",
+  "dgSpecHash": "aCG9VG5YKnM=",
   "success": true,
   "projectFilePath": "C:\\Users\\Adam\\Videos\\ProjectBetter\\Launcher\\ProjectBetterLauncher\\ProjectBetterLauncher\\ProjectBetterLauncher.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Adam\\.nuget\\packages\\avalonia\\12.1.2\\avalonia.12.1.2.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.27548.20260419\\avalonia.angle.windows.natives.2.1.27548.20260419.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\avalonia.buildservices\\11.3.2\\avalonia.buildservices.11.3.2.nupkg.sha512",
+    "C:\\Users\\Adam\\.nuget\\packages\\avalonia.controls.webview\\12.1.0\\avalonia.controls.webview.12.1.0.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\avalonia.desktop\\12.1.2\\avalonia.desktop.12.1.2.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\avalonia.fonts.inter\\12.1.2\\avalonia.fonts.inter.12.1.2.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\avalonia.freedesktop\\12.1.2\\avalonia.freedesktop.12.1.2.nupkg.sha512",
@@ -21,10 +22,10 @@
     "C:\\Users\\Adam\\.nuget\\packages\\avaloniaui.diagnosticssupport\\2.2.3\\avaloniaui.diagnosticssupport.2.2.3.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.2\\communitytoolkit.mvvm.8.4.2.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\discordrichpresence\\1.6.1.70\\discordrichpresence.1.6.1.70.nupkg.sha512",
-    "C:\\Users\\Adam\\.nuget\\packages\\google.apis\\1.76.0\\google.apis.1.76.0.nupkg.sha512",
-    "C:\\Users\\Adam\\.nuget\\packages\\google.apis.auth\\1.76.0\\google.apis.auth.1.76.0.nupkg.sha512",
-    "C:\\Users\\Adam\\.nuget\\packages\\google.apis.core\\1.76.0\\google.apis.core.1.76.0.nupkg.sha512",
-    "C:\\Users\\Adam\\.nuget\\packages\\google.apis.drive.v3\\1.76.0.4273\\google.apis.drive.v3.1.76.0.4273.nupkg.sha512",
+    "C:\\Users\\Adam\\.nuget\\packages\\google.apis\\1.77.0\\google.apis.1.77.0.nupkg.sha512",
+    "C:\\Users\\Adam\\.nuget\\packages\\google.apis.auth\\1.77.0\\google.apis.auth.1.77.0.nupkg.sha512",
+    "C:\\Users\\Adam\\.nuget\\packages\\google.apis.core\\1.77.0\\google.apis.core.1.77.0.nupkg.sha512",
+    "C:\\Users\\Adam\\.nuget\\packages\\google.apis.drive.v3\\1.77.0.4276\\google.apis.drive.v3.1.77.0.4276.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\harfbuzzsharp\\8.3.1.3\\harfbuzzsharp.8.3.1.3.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\harfbuzzsharp.nativeassets.linux\\8.3.1.3\\harfbuzzsharp.nativeassets.linux.8.3.1.3.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\8.3.1.3\\harfbuzzsharp.nativeassets.macos.8.3.1.3.nupkg.sha512",
@@ -34,6 +35,7 @@
     "C:\\Users\\Adam\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\microsoft.io.recyclablememorystream\\3.0.1\\microsoft.io.recyclablememorystream.3.0.1.nupkg.sha512",
+    "C:\\Users\\Adam\\.nuget\\packages\\microsoft.net.illink.tasks\\10.0.10\\microsoft.net.illink.tasks.10.0.10.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\microsoft.toolkit.uwp.notifications\\7.1.3\\microsoft.toolkit.uwp.notifications.7.1.3.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
@@ -56,6 +58,9 @@
     "C:\\Users\\Adam\\.nuget\\packages\\system.management\\7.0.2\\system.management.7.0.2.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\system.numerics.tensors\\9.0.0\\system.numerics.tensors.9.0.0.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\tmds.dbus.protocol\\0.94.1\\tmds.dbus.protocol.0.94.1.nupkg.sha512",
+    "C:\\Users\\Adam\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.10\\microsoft.netcore.app.runtime.win-x64.10.0.10.nupkg.sha512",
+    "C:\\Users\\Adam\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\10.0.10\\microsoft.windowsdesktop.app.runtime.win-x64.10.0.10.nupkg.sha512",
+    "C:\\Users\\Adam\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.10\\microsoft.aspnetcore.app.runtime.win-x64.10.0.10.nupkg.sha512",
     "C:\\Users\\Adam\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.17763.57\\microsoft.windows.sdk.net.ref.10.0.17763.57.nupkg.sha512"
   ],
   "logs": [
@@ -68,7 +73,8 @@
       "filePath": "C:\\Users\\Adam\\Videos\\ProjectBetter\\Launcher\\ProjectBetterLauncher\\ProjectBetterLauncher\\ProjectBetterLauncher.csproj",
       "libraryId": "System.Drawing.Common",
       "targetGraphs": [
-        "net10.0-windows10.0.17763.0"
+        "net10.0-windows10.0.17763.0",
+        "net10.0-windows10.0.17763.0/win-x64"
       ]
     }
   ]

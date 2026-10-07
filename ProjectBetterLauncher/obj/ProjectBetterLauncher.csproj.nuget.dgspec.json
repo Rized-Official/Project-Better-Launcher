@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[12.1.2, )"
             },
+            "Avalonia.Controls.WebView": {
+              "target": "Package",
+              "version": "[12.1.0, )"
+            },
             "Avalonia.Desktop": {
               "target": "Package",
               "version": "[12.1.2, )"
@@ -76,9 +80,19 @@
               "target": "Package",
               "version": "[1.6.1.70, )"
             },
+            "Google.Apis.Auth": {
+              "target": "Package",
+              "version": "[1.77.0, )"
+            },
             "Google.Apis.Drive.v3": {
               "target": "Package",
-              "version": "[1.76.0.4273, )"
+              "version": "[1.77.0.4276, )"
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[10.0.10, )",
+              "autoReferenced": true
             },
             "Microsoft.Toolkit.Uwp.Notifications": {
               "target": "Package",
@@ -106,8 +120,20 @@
           "warn": true,
           "downloadDependencies": [
             {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[10.0.10, 10.0.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[10.0.10, 10.0.10]"
+            },
+            {
               "name": "Microsoft.Windows.SDK.NET.Ref",
               "version": "[10.0.17763.57, 10.0.17763.57]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[10.0.10, 10.0.10]"
             }
           ],
           "frameworkReferences": {
@@ -393,6 +419,11 @@
             "System.Xml.XPath": "(,4.3.32767]",
             "System.Xml.XPath.XDocument": "(,5.0.32767]"
           }
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }
