@@ -273,5 +273,6 @@
         </Panel>
         <views:Settings IsVisible="False" Name="Settings"></views:Settings>
         <views:HowToInstall IsVisible="False" Name="HowToInstall"></views:HowToInstall>
+        <views:Opinion></views:Opinion>
     </Panel>
 </Window>

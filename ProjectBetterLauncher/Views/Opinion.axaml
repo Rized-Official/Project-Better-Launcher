@@ -1,0 +1,35 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1270" d:DesignHeight="800"
+             x:Class="ProjectBetterLauncher.Views.Opinion"
+             Background="rgba(0,0,0,0.5)">
+    <Panel>
+        <Border BorderBrush="White" BorderThickness="3" Height="90">
+            <Rectangle IsHitTestVisible="False" HorizontalAlignment="Center" VerticalAlignment="Top" Width="90000" Height="85" Fill="Black"></Rectangle>
+            <Border.RenderTransform>
+                <TranslateTransform Y="-150"></TranslateTransform>
+            </Border.RenderTransform>
+        </Border>
+        <Image Source="avares://ProjectBetterLauncher/Assets/PJBTLogo.png" Width="300">
+            <Image.RenderTransform>
+                <TranslateTransform Y="-230"></TranslateTransform>
+            </Image.RenderTransform>
+        </Image>
+        <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+            Would you like to give us some opinion about Project: Better?
+            <TextBlock.RenderTransform>
+                <TranslateTransform Y="-170"></TranslateTransform>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+            If yes than complete this short survey!
+            <TextBlock.RenderTransform>
+                <TranslateTransform Y="-150"></TranslateTransform>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        
+        <TextBox Width="500" Height="30" PlaceholderText="How long have you used Project: Better" Foreground="White" TextAlignment="Center" BorderBrush="White"></TextBox>
+    </Panel>
+</UserControl>

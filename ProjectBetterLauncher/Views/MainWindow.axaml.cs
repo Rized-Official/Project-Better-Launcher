@@ -71,8 +71,6 @@ public partial class MainWindow : Window
 
         gameLocation = _currentSettings.GameLocation;
         
-        OpinionManager.SendOpinion("Test");
-        
         InitializeComponent();
         
         Instance = this;
