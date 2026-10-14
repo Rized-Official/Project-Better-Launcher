@@ -30,6 +30,68 @@
             </TextBlock.RenderTransform>
         </TextBlock>
         
-        <TextBox Width="500" Height="30" PlaceholderText="How long have you used Project: Better" Foreground="White" TextAlignment="Center" BorderBrush="White"></TextBox>
+        <TextBox Name="HowLongPJBTUse" Width="500" Height="30" PlaceholderText="How long have you used Project: Better" Foreground="White" TextAlignment="Center" BorderBrush="White">
+            <TextBox.RenderTransform>
+                <TranslateTransform Y="-50"></TranslateTransform>
+            </TextBox.RenderTransform>
+        </TextBox>
+        
+                <!-- Button Start -->
+            <Border BorderBrush="White"
+                    IsVisible="True"
+                    Name="UnderstoodBorder"
+                    BorderThickness="3" 
+                    Width="400"
+                    Height="50"
+                    VerticalAlignment="Bottom" Margin="10">
+                <Border.Styles>
+                    <Style Selector="Border">
+                        <Setter Property="RenderTransform" Value="scale(1)"/>
+                        <Setter Property="Transitions">
+                            <Transitions>
+                                <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
+                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseInOut"/>
+                            </Transitions>
+                        </Setter>
+                    </Style>
+
+                    <Style Selector="Border:pointerover">
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="RenderTransform" Value="scale(1.1)"/>
+                    </Style>
+                </Border.Styles>
+                <Panel>
+                    <Button Foreground="White" 
+                            CornerRadius="0"
+                            Click="ShareWithDevelopersButton_OnClick"
+                            PointerEntered="ShareWithDevelopersButton_OnPointerEntered"
+                            Name="UnderstoodButton"
+                            Cursor="Hand"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center" 
+                            VerticalContentAlignment="Center"
+                            Background="Black" 
+                            VerticalAlignment="Center" 
+                            Height="40"
+                            FontSize="20"
+                            TextElement.FontFamily="{StaticResource VCR}">
+                        <Button.Styles>
+                            <Style Selector="Button">
+                                <Setter Property="Foreground" Value="White"></Setter>
+                            </Style>
+                            <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                <Setter Property="Foreground" Value="Black"></Setter>
+                            </Style>
+                            <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                                <Setter Property="Foreground" Value="White"></Setter>
+                                <Setter Property="Background" Value="Black"></Setter>
+                            </Style>
+                        </Button.Styles>
+                        Share With Developers
+                    </Button>
+                </Panel>
+            </Border>
+            
+            <!-- Button End -->
     </Panel>
 </UserControl>
