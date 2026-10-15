@@ -1,0 +1,143 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
+             x:Class="ProjectBetterLauncher.Views.Changelog"
+             Background="rgba(0,0,0,0.75)">
+
+    <UserControl.Styles>
+        <Style Selector="ScrollBar">
+            <Setter Property="Background" Value="rgba(255,255,255,0.05)"/>
+            <Setter Property="Width" Value="8"/>
+        </Style>
+        <Style Selector="ScrollBar /template/ Thumb">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="CornerRadius" Value="0"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Panel>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Spacing="14">
+
+            <TextBlock FontFamily="{StaticResource Cartoon}" 
+                       HorizontalAlignment="Center" 
+                       Foreground="White" 
+                       FontSize="24" 
+                       TextAlignment="Center"
+                       Text="WHAT'S NEW">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="8" Color="Black" Opacity="0.9"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <Border BorderBrush="White" 
+                    BorderThickness="3" 
+                    Width="820"
+                    Height="520"
+                    Background="#080808"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="25" Color="Black" Opacity="0.95"/>
+                </Border.Effect>
+
+                <Grid RowDefinitions="Auto, *">
+                    <Border Grid.Row="0"
+                            Background="#121212"
+                            BorderBrush="rgba(255,255,255,0.25)"
+                            BorderThickness="0, 0, 0, 2"
+                            Padding="24, 18">
+                        <StackPanel Spacing="4" HorizontalAlignment="Center">
+                            <TextBlock Text="UPDATE LOG"
+                                       FontFamily="{StaticResource VCR}"
+                                       FontSize="11"
+                                       Foreground="Gray"
+                                       HorizontalAlignment="Center"/>
+                            <TextBlock Name="ChangelogTitleText"
+                                       Text="LOADING UPDATE..."
+                                       FontFamily="{StaticResource VCR}"
+                                       FontSize="22"
+                                       Foreground="Yellow"
+                                       TextAlignment="Center"
+                                       TextWrapping="Wrap"
+                                       HorizontalAlignment="Center">
+                                <TextBlock.Effect>
+                                    <DropShadowEffect BlurRadius="6" Color="Black" OffsetX="1" OffsetY="1"/>
+                                </TextBlock.Effect>
+                            </TextBlock>
+                        </StackPanel>
+                    </Border>
+
+                    <ScrollViewer Grid.Row="1"
+                                  VerticalScrollBarVisibility="Auto"
+                                  HorizontalScrollBarVisibility="Disabled"
+                                  Margin="20, 16, 16, 18"
+                                  Padding="0, 0, 14, 0">
+                        <StackPanel Name="ChangelogItemsPanel" 
+                                    Spacing="12" 
+                                    HorizontalAlignment="Stretch"/>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Panel HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Border BorderBrush="White" 
+                        Margin="20, 45, 20, 10"
+                        BorderThickness="3" 
+                        Width="85"
+                        Height="38">
+                    <Border.Styles>
+                        <Style Selector="Border">
+                            <Setter Property="RenderTransform" Value="scale(1)"/>
+                            <Setter Property="Transitions">
+                                <Transitions>
+                                    <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
+                                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseInOut"/>
+                                </Transitions>
+                            </Setter>
+                        </Style>
+
+                        <Style Selector="Border:pointerover">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="RenderTransform" Value="scale(1.1)"/>
+                        </Style>
+                    </Border.Styles>
+                    <Panel>
+                        <Button Foreground="White" 
+                                Click="BackButton_OnClick"
+                                PointerEntered="BackButton_OnPointerEntered"
+                                Cursor="Hand"
+                                CornerRadius="0" 
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Background="Black" 
+                                VerticalAlignment="Center" 
+                                Height="32"
+                                FontSize="16"
+                                TextElement.FontFamily="{StaticResource VCR}">
+                            <Button.Styles>
+                                <Style Selector="Button">
+                                    <Setter Property="Foreground" Value="White"></Setter>
+                                </Style>
+                                <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                    <Setter Property="Foreground" Value="Black"></Setter>
+                                </Style>
+                                <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                                    <Setter Property="Foreground" Value="White"></Setter>
+                                    <Setter Property="Background" Value="Black"></Setter>
+                                </Style>
+                            </Button.Styles>
+                            Back
+                        </Button>
+                    </Panel>
+                </Border>
+            </Panel>
+        </StackPanel>
+    </Panel>
+</UserControl>

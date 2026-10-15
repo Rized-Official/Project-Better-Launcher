@@ -11,4 +11,8 @@ public class AppSettings
     public string GameLocation { get; set; } = "";
     
     public bool SharedOpinion { get; set; } = false;
+
+    public string InstalledVersion { get; set; } = "NONE";
+
+    public bool BackgroundAnimation { get; set; } = true;
 }

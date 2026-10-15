@@ -1,16 +1,13 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
 using ProjectBetterLauncher.Helpers.Json;
-using Avalonia.Media.Imaging;
 using Avalonia.Platform.Storage;
-using Avalonia.Controls.ApplicationLifetimes;
 
 namespace ProjectBetterLauncher.Views;
 
@@ -27,14 +24,8 @@ public partial class Settings : UserControl
         InitializeComponent();
         
         _currentSettings = JsonStorageService.Load(_settingsFile, new AppSettings());
-        if (_currentSettings.DiscordRPC)
-        {
-            DiscordRpcCheckBox.IsChecked = true;
-        }
-        else
-        {
-            DiscordRpcCheckBox.IsChecked = false;
-        }
+        DiscordRpcCheckBox.IsChecked = _currentSettings.DiscordRPC;
+        BackgroundAnimationCheckBox.IsChecked = _currentSettings.BackgroundAnimation;
         
         GameLocationText.Text = string.IsNullOrEmpty(_currentSettings.GameLocation)
             ? "Game not found"
@@ -48,8 +39,11 @@ public partial class Settings : UserControl
         
         App.PlaySound(_clickSoundPath);
         
-        MainWindow.Instance?.Settings.IsVisible = false;
-        MainWindow.Instance?.OpenSettingsBorder.IsVisible = true;
+        if (MainWindow.Instance != null)
+        {
+            MainWindow.Instance.Settings.IsVisible = false;
+            MainWindow.Instance.BottomLeftButtonsPanel.IsVisible = true;
+        }
     }
 
     private void BackButton_OnPointerEntered(object? sender, PointerEventArgs e)
@@ -61,21 +55,19 @@ public partial class Settings : UserControl
     {
         bool isChecked = DiscordRpcCheckBox.IsChecked ?? false;
 
-        if (isChecked)
-        {
-            TextChangeEffect.IsVisible = true;
-            _currentSettings.DiscordRPC = true;
-            
-            JsonStorageService.Save(_settingsFile, _currentSettings);
-        }
-        else
-        {
-            TextChangeEffect.IsVisible = true;
-            _currentSettings.DiscordRPC = false;
-            
-            JsonStorageService.Save(_settingsFile, _currentSettings);
+        TextChangeEffect.IsVisible = true;
+        _currentSettings.DiscordRPC = isChecked;
+        JsonStorageService.Save(_settingsFile, _currentSettings);
+    }
 
-        }
+    private void BackgroundAnimation_OnIsCheckedChanged(object? sender, RoutedEventArgs e)
+    {
+        bool isChecked = BackgroundAnimationCheckBox.IsChecked ?? false;
+
+        _currentSettings.BackgroundAnimation = isChecked;
+        JsonStorageService.Save(_settingsFile, _currentSettings);
+        
+        MainWindow.Instance?.ApplyBackgroundAnimationState();
     }
 
     private async void ChnageBackground_OnClick(object? sender, RoutedEventArgs e)
@@ -99,17 +91,13 @@ public partial class Settings : UserControl
             }
         });
         
-            
         if (files.Count == 0) return;
         
         _currentSettings.BackgroundName = "background.jpg";
             
         var selectedFile = files[0];
-            
         string baseDir = AppDomain.CurrentDomain.BaseDirectory;
-            
         string targetPath = Path.Combine(baseDir, "Assets", "background.jpg");
-            
         string? targetDir = Path.GetDirectoryName(targetPath);
 
         if (!string.IsNullOrEmpty(targetDir) && !Directory.Exists(targetDir))
@@ -127,22 +115,69 @@ public partial class Settings : UserControl
         MainWindow.Instance?.LoadBackground("background.jpg");
     }
 
+    private async void DeleteMod_OnClick(object? sender, RoutedEventArgs e)
+    {
+        App.PlaySound(_clickSoundPath);
+
+        _currentSettings = JsonStorageService.Load(_settingsFile, new AppSettings());
+
+        if (!string.IsNullOrEmpty(_currentSettings.GameLocation))
+        {
+            string pakPath = Path.Combine(_currentSettings.GameLocation, "Playtime_Multiplayer", "Content", "Paks", "ProjectBetter_P.pak");
+
+            try
+            {
+                if (File.Exists(pakPath))
+                {
+                    File.Delete(pakPath);
+                }
+
+                _currentSettings.InstalledVersion = "NONE";
+                JsonStorageService.Save(_settingsFile, _currentSettings);
+
+                DeleteModButton.Content = "Deleted!";
+                MainWindow.Instance?.OnModDeleted();
+
+                await Task.Delay(1500);
+                DeleteModButton.Content = "Delete Project: Better";
+            }
+            catch (Exception ex)
+            {
+                DeleteModButton.Content = "Error (Close Game)";
+                Console.WriteLine(ex.Message);
+                await Task.Delay(2000);
+                DeleteModButton.Content = "Delete Project: Better";
+            }
+        }
+    }
+
     private async void DefaultSettings_OnClick(object? sender, RoutedEventArgs e)
     {
+        App.PlaySound(_clickSoundPath);
+
         _currentSettings.DiscordRPC = true;
         _currentSettings.BackgroundName = "defaultbackground.jpg";
         _currentSettings.AcceptedInstalled = false;
+        _currentSettings.BackgroundAnimation = true;
         
         JsonStorageService.Save(_settingsFile, _currentSettings);
         
-        TopBar.SetState("Closing");
+        TopBar.SetState("Restarting...");
         BackToDefault.IsVisible = true;
 
         await Task.Delay(2000);
         
-        MainWindow.Instance?.Settings.IsVisible = false;
-        MainWindow.Instance?.LoadBackground();
+        string? exePath = Environment.ProcessPath;
+        if (!string.IsNullOrEmpty(exePath))
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = exePath,
+                UseShellExecute = true
+            });
+        }
         
         MainWindow.Instance?.Close();
+        Environment.Exit(0);
     }
 }

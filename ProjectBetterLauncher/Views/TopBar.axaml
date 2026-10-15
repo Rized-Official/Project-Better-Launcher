@@ -5,74 +5,156 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="ProjectBetterLauncher.Views.TopBar"
              FontFamily="{StaticResource VCR}">
+
+    <UserControl.Styles>
+        <Style Selector="Button.windowBtn">
+            <Setter Property="Width" Value="32"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="Background" Value="rgba(0, 0, 0, 0.5)"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.15"/>
+                </Transitions>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.windowBtn:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <Style Selector="Button.windowBtn:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <Style Selector="Button.closeBtn">
+            <Setter Property="Width" Value="32"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="Background" Value="#FF1E1E"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.15"/>
+                </Transitions>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.closeBtn:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#FF1E1E"/>
+        </Style>
+
+        <Style Selector="Button.closeBtn:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#CC0000"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </UserControl.Styles>
     
-    <Panel VerticalAlignment="Top">
-        <Border WindowDecorationProperties.ElementRole="TitleBar">
-            <Rectangle IsHitTestVisible="True" Width="2000" Height="30" Fill="rgba(0, 0, 0, 0.2)" HorizontalAlignment="Center" VerticalAlignment="Top" ></Rectangle>
-        </Border>
-        <Rectangle IsHitTestVisible="False" Width="200" Height="30" Fill="rgba(0, 0, 0, 0.29)" HorizontalAlignment="Center" VerticalAlignment="Top"></Rectangle>
-        <Rectangle IsHitTestVisible="False" Width="110" Height="30" Fill="rgba(0, 0, 0, 0.29)" HorizontalAlignment="Left" VerticalAlignment="Top"></Rectangle>
-        <TextBlock Foreground="White"
-                   FontSize="10"
-                   IsHitTestVisible="False"
-                   Margin="10"
-                   VerticalAlignment="Top"
-                   HorizontalAlignment="Left">
-            <TextBlock.Effect>
-                <DropShadowEffect></DropShadowEffect>
-            </TextBlock.Effect>
-            
-            Project: Better
-        </TextBlock>
-        <Button Click="CloseLauncher_OnClick" ClipToBounds="False" HorizontalAlignment="Right" VerticalAlignment="Top" Background="Red" Height="30"  CornerRadius="0" Margin="0,0,0,0" Width="30" Foreground="White">
-            <TextBlock
-                FontFamily="{StaticResource Cartoon}"
-                TextAlignment="Center"
-                >
-                X
-                <TextBlock.RenderTransform>
-                    <TranslateTransform Y="-2.5"></TranslateTransform>
-                </TextBlock.RenderTransform>
-            </TextBlock>
-        </Button>
-        <Button Click="Maximize_OnClick" ClipToBounds="False" HorizontalAlignment="Right" VerticalAlignment="Top" Background="rgba(0,0,0,0.5)" Height="30"  CornerRadius="0" Margin="0,0,30,0" Width="30" Foreground="White">
-            <TextBlock
-                FontFamily="{StaticResource Cartoon}"
-                TextAlignment="Center"
-            >
-                ■
-                <TextBlock.RenderTransform>
-                    <TranslateTransform Y="-2.5"></TranslateTransform>
-                </TextBlock.RenderTransform>
-            </TextBlock>
-        </Button>
-        
-        <Button Click="Minimize_OnClick" ClipToBounds="False" HorizontalAlignment="Right" VerticalAlignment="Top" Background="rgba(0,0,0,0.5)" Height="30"  CornerRadius="0" Margin="0,0,60,0" Width="30" Foreground="White">
-            <TextBlock
-                FontFamily="{StaticResource Cartoon}"
-                TextAlignment="Center"
-            >
-                -
-                <TextBlock.RenderTransform>
-                    <TranslateTransform Y="-2.5"></TranslateTransform>
-                </TextBlock.RenderTransform>
-            </TextBlock>
-        </Button>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+    <Panel VerticalAlignment="Top" Height="30">
+        <Border WindowDecorationProperties.ElementRole="TitleBar"
+                Background="rgba(0, 0, 0, 0.25)"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                IsHitTestVisible="True"/>
+
+        <Border Background="rgba(0, 0, 0, 0.35)"
+                Padding="12, 0"
+                Height="30"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                IsHitTestVisible="False">
             <TextBlock Foreground="White"
-                       FontSize="10"
-                       Margin="10"
-                       VerticalAlignment="Top"
-                       HorizontalAlignment="Center"
-                       IsHitTestVisible="False"
-                       Name="LauncherStateText">
+                       FontSize="11"
+                       VerticalAlignment="Center"
+                       Text="Project: Better">
                 <TextBlock.Effect>
-                    <DropShadowEffect></DropShadowEffect>
+                    <DropShadowEffect BlurRadius="4" Color="Black" OffsetX="1" OffsetY="1"/>
                 </TextBlock.Effect>
-            
-                Launching...
             </TextBlock>
-            <Image Source="avares://ProjectBetterLauncher/Assets/icon.ico" Width="15" Margin="-10, -8, 0, -4" ></Image>
+        </Border>
+
+        <Border Background="rgba(0, 0, 0, 0.35)"
+                MinWidth="190"
+                Height="30"
+                Padding="16, 0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                IsHitTestVisible="False">
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        Spacing="6">
+                <TextBlock Foreground="White"
+                           FontSize="11"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Name="LauncherStateText"
+                           Text="Launching...">
+                    <TextBlock.Effect>
+                        <DropShadowEffect BlurRadius="4" Color="Black" OffsetX="1" OffsetY="1"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <Image Source="avares://ProjectBetterLauncher/Assets/icon.ico" 
+                       Width="15" 
+                       Height="15" 
+                       VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Top">
+            <Button Classes="windowBtn" 
+                    Click="Minimize_OnClick" 
+                    ClipToBounds="False">
+                <TextBlock FontFamily="{StaticResource Cartoon}"
+                           FontSize="12"
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="-">
+                    <TextBlock.RenderTransform>
+                        <TranslateTransform Y="-1.5"/>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </Button>
+
+            <Button Classes="windowBtn" 
+                    Click="Maximize_OnClick" 
+                    ClipToBounds="False">
+                <TextBlock FontFamily="{StaticResource Cartoon}"
+                           FontSize="11"
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="■">
+                    <TextBlock.RenderTransform>
+                        <TranslateTransform Y="-1.5"/>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </Button>
+
+            <Button Classes="closeBtn" 
+                    Click="CloseLauncher_OnClick" 
+                    ClipToBounds="False">
+                <TextBlock FontFamily="{StaticResource Cartoon}"
+                           FontSize="11"
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="X">
+                    <TextBlock.RenderTransform>
+                        <TranslateTransform Y="-1.5"/>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </Button>
         </StackPanel>
     </Panel>
 </UserControl>

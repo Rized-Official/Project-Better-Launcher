@@ -2,165 +2,196 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
              x:Class="ProjectBetterLauncher.Views.HowToInstall"
-             Background="rgba(0,0,0,0.5)">
+             Background="rgba(0,0,0,0.75)">
     
     <Panel>
-        <Border BorderBrush="White" BorderThickness="3" Height="90">
-            <Rectangle IsHitTestVisible="False" HorizontalAlignment="Center" VerticalAlignment="Top" Width="90000" Height="85" Fill="Black"></Rectangle>
-            <Border.RenderTransform>
-                <TranslateTransform Y="-120"></TranslateTransform>
-            </Border.RenderTransform>
+        <Border BorderBrush="White" 
+                BorderThickness="3" 
+                Background="Black"
+                Width="680"
+                Padding="30, 20, 30, 25"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="20" Color="Black" Opacity="0.9"/>
+            </Border.Effect>
+
+            <StackPanel HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        Spacing="14">
+
+                <Image Source="avares://ProjectBetterLauncher/Assets/PJBTLogo.png" 
+                       Width="260"
+                       Margin="0, -35, 0, -25"
+                       HorizontalAlignment="Center">
+                    <Image.Effect>
+                        <DropShadowEffect BlurRadius="8" Color="Black" Opacity="0.8"/>
+                    </Image.Effect>
+                </Image>
+
+                <TextBlock Text="HOW TO INSTALL" 
+                           FontFamily="{StaticResource Cartoon}" 
+                           FontSize="18" 
+                           Foreground="White" 
+                           HorizontalAlignment="Center"/>
+
+                <Rectangle Height="2" Fill="rgba(255,255,255,0.2)" Width="580"/>
+
+                <StackPanel Spacing="6" HorizontalAlignment="Center">
+                    <TextBlock Foreground="Yellow" 
+                               FontFamily="{StaticResource VCR}" 
+                               FontSize="10" 
+                               TextAlignment="Center"
+                               HorizontalAlignment="Center">
+                        To install Project: Better you need to have Project: Playtime Phase 2 installed on Steam.
+                    </TextBlock>
+                    <TextBlock Foreground="LightGray" 
+                               FontFamily="{StaticResource VCR}" 
+                               FontSize="12" 
+                               TextAlignment="Center"
+                               HorizontalAlignment="Center">
+                        Please watch and follow this tutorial before going further:
+                    </TextBlock>
+                </StackPanel>
+
+                <Border BorderBrush="White" 
+                        BorderThickness="3" 
+                        Width="586" 
+                        Height="306"
+                        Background="rgba(15,15,15,1)"
+                        HorizontalAlignment="Center">
+                    <Panel>
+                        <TextBlock Foreground="White" 
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center" 
+                                   FontSize="14"
+                                   FontFamily="{StaticResource Cartoon}">
+                            Loading tutorial video...
+                        </TextBlock>
+                        
+                        <NativeWebView Name="NativeWebView" 
+                                       Source="https://www.youtube.com/watch?v=_yQcnxqHIh8" 
+                                       Width="580" 
+                                       Height="300"/>
+                    </Panel>
+                </Border>
+
+                <StackPanel Spacing="10" HorizontalAlignment="Center" Margin="0, 4, 0, 0">
+                    
+                    <Border BorderBrush="White"
+                            IsVisible="True"
+                            Name="OpenBrowser"
+                            BorderThickness="3" 
+                            Width="400"
+                            Height="34"
+                            HorizontalAlignment="Center">
+                        <Border.Styles>
+                            <Style Selector="Border">
+                                <Setter Property="RenderTransform" Value="scale(1)"/>
+                                <Setter Property="Transitions">
+                                    <Transitions>
+                                        <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
+                                        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseInOut"/>
+                                    </Transitions>
+                                </Setter>
+                            </Style>
+
+                            <Style Selector="Border:pointerover">
+                                <Setter Property="Background" Value="White"/>
+                                <Setter Property="RenderTransform" Value="scale(1.06)"/>
+                            </Style>
+                        </Border.Styles>
+                        <Panel>
+                            <Button Foreground="White" 
+                                    CornerRadius="0"
+                                    Click="OpenInBrowser_OnClick"
+                                    PointerEntered="Understood_OnPointerEntered"
+                                    Cursor="Hand"
+                                    HorizontalAlignment="Stretch"
+                                    HorizontalContentAlignment="Center" 
+                                    VerticalContentAlignment="Center"
+                                    Background="Black" 
+                                    VerticalAlignment="Center" 
+                                    Height="28"
+                                    FontSize="14"
+                                    TextElement.FontFamily="{StaticResource VCR}">
+                                <Button.Styles>
+                                    <Style Selector="Button">
+                                        <Setter Property="Foreground" Value="White"></Setter>
+                                    </Style>
+                                    <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                        <Setter Property="Foreground" Value="Black"></Setter>
+                                    </Style>
+                                    <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                                        <Setter Property="Foreground" Value="White"></Setter>
+                                        <Setter Property="Background" Value="Black"></Setter>
+                                    </Style>
+                                </Button.Styles>
+                                Open in browser
+                            </Button>
+                        </Panel>
+                    </Border>
+
+                    <Border BorderBrush="White"
+                            IsVisible="True"
+                            Name="UnderstoodBorder"
+                            BorderThickness="3" 
+                            Width="400"
+                            Height="46"
+                            HorizontalAlignment="Center">
+                        <Border.Styles>
+                            <Style Selector="Border">
+                                <Setter Property="RenderTransform" Value="scale(1)"/>
+                                <Setter Property="Transitions">
+                                    <Transitions>
+                                        <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
+                                        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseInOut"/>
+                                    </Transitions>
+                                </Setter>
+                            </Style>
+
+                            <Style Selector="Border:pointerover">
+                                <Setter Property="Background" Value="White"/>
+                                <Setter Property="RenderTransform" Value="scale(1.08)"/>
+                            </Style>
+                        </Border.Styles>
+                        <Panel>
+                            <Button Foreground="White" 
+                                    CornerRadius="0"
+                                    Click="Understood_OnClick"
+                                    PointerEntered="Understood_OnPointerEntered"
+                                    Name="UnderstoodButton"
+                                    Cursor="Hand"
+                                    HorizontalAlignment="Stretch"
+                                    HorizontalContentAlignment="Center" 
+                                    VerticalContentAlignment="Center"
+                                    Background="Black" 
+                                    VerticalAlignment="Center" 
+                                    Height="40"
+                                    FontSize="18"
+                                    TextElement.FontFamily="{StaticResource VCR}">
+                                <Button.Styles>
+                                    <Style Selector="Button">
+                                        <Setter Property="Foreground" Value="White"></Setter>
+                                    </Style>
+                                    <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                        <Setter Property="Foreground" Value="Black"></Setter>
+                                    </Style>
+                                    <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                                        <Setter Property="Foreground" Value="White"></Setter>
+                                        <Setter Property="Background" Value="Black"></Setter>
+                                    </Style>
+                                </Button.Styles>
+                                Understood
+                            </Button>
+                        </Panel>
+                    </Border>
+
+                </StackPanel>
+
+            </StackPanel>
         </Border>
-        <Image Source="avares://ProjectBetterLauncher/Assets/PJBTLogo.png" Width="300">
-            <Image.RenderTransform>
-                <TranslateTransform Y="-200"></TranslateTransform>
-            </Image.RenderTransform>
-        </Image>
-        <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center">
-            To install Project: Better you need to have Project: Playtime Phase 2 installed on Steam.
-            <TextBlock.RenderTransform>
-                <TranslateTransform Y="-140"></TranslateTransform>
-            </TextBlock.RenderTransform>
-        </TextBlock>
-        <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center">
-            Please follow this tutorial before going further.
-            <TextBlock.RenderTransform>
-                <TranslateTransform Y="-120"></TranslateTransform>
-            </TextBlock.RenderTransform>
-        </TextBlock>
-        <Rectangle Fill="rgba(0,0,0,0.9)" Width="600" Height="300">
-            <Rectangle.RenderTransform>
-                <TranslateTransform Y="100"></TranslateTransform>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        
-        <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="{StaticResource Cartoon}">
-            Loading...
-            <TextBlock.RenderTransform>
-                <TranslateTransform Y="100"></TranslateTransform>
-            </TextBlock.RenderTransform>
-        </TextBlock>
-        
-        <NativeWebView Name="NativeWebView" Source="https://www.youtube.com/watch?v=_yQcnxqHIh8" Width="600" Height="300">
-            <NativeWebView.RenderTransform>
-                <TranslateTransform Y="100"></TranslateTransform>
-            </NativeWebView.RenderTransform>
-        </NativeWebView>
-        <!-- Button Start -->
-            <Border BorderBrush="White"
-                    IsVisible="True"
-                    Name="UnderstoodBorder"
-                    BorderThickness="3" 
-                    Width="400"
-                    Height="50"
-                    VerticalAlignment="Bottom" Margin="10">
-                <Border.Styles>
-                    <Style Selector="Border">
-                        <Setter Property="RenderTransform" Value="scale(1)"/>
-                        <Setter Property="Transitions">
-                            <Transitions>
-                                <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
-                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseInOut"/>
-                            </Transitions>
-                        </Setter>
-                    </Style>
-
-                    <Style Selector="Border:pointerover">
-                        <Setter Property="Background" Value="White"/>
-                        <Setter Property="RenderTransform" Value="scale(1.1)"/>
-                    </Style>
-                </Border.Styles>
-                <Panel>
-                    <Button Foreground="White" 
-                            CornerRadius="0"
-                            Click="Understood_OnClick"
-                            PointerEntered="Understood_OnPointerEntered"
-                            Name="UnderstoodButton"
-                            Cursor="Hand"
-                            HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Center" 
-                            VerticalContentAlignment="Center"
-                            Background="Black" 
-                            VerticalAlignment="Center" 
-                            Height="40"
-                            FontSize="20"
-                            TextElement.FontFamily="{StaticResource VCR}">
-                        <Button.Styles>
-                            <Style Selector="Button">
-                                <Setter Property="Foreground" Value="White"></Setter>
-                            </Style>
-                            <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                                <Setter Property="Foreground" Value="Black"></Setter>
-                            </Style>
-                            <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                                <Setter Property="Foreground" Value="White"></Setter>
-                                <Setter Property="Background" Value="Black"></Setter>
-                            </Style>
-                        </Button.Styles>
-                        Understood
-                    </Button>
-                </Panel>
-            </Border>
-            
-            <!-- Button End -->
-        
-                <!-- Button Start -->
-            <Border BorderBrush="White"
-                    IsVisible="True"
-                    Name="OpenBrowser"
-                    BorderThickness="3" 
-                    Width="400"
-                    Height="35"
-                    VerticalAlignment="Top" Margin="40">
-                <Border.Styles>
-                    <Style Selector="Border">
-                        <Setter Property="RenderTransform" Value="scale(1)"/>
-                        <Setter Property="Transitions">
-                            <Transitions>
-                                <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
-                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseInOut"/>
-                            </Transitions>
-                        </Setter>
-                    </Style>
-
-                    <Style Selector="Border:pointerover">
-                        <Setter Property="Background" Value="White"/>
-                        <Setter Property="RenderTransform" Value="scale(1.1)"/>
-                    </Style>
-                </Border.Styles>
-                <Panel>
-                    <Button Foreground="White" 
-                            CornerRadius="0"
-                            Click="OpenInBrowser_OnClick"
-                            PointerEntered="Understood_OnPointerEntered"
-                            Cursor="Hand"
-                            HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Center" 
-                            VerticalContentAlignment="Center"
-                            Background="Black" 
-                            VerticalAlignment="Center" 
-                            Height="30"
-                            FontSize="20"
-                            TextElement.FontFamily="{StaticResource VCR}">
-                        <Button.Styles>
-                            <Style Selector="Button">
-                                <Setter Property="Foreground" Value="White"></Setter>
-                            </Style>
-                            <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                                <Setter Property="Foreground" Value="Black"></Setter>
-                            </Style>
-                            <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                                <Setter Property="Foreground" Value="White"></Setter>
-                                <Setter Property="Background" Value="Black"></Setter>
-                            </Style>
-                        </Button.Styles>
-                        Open in browser
-                    </Button>
-                </Panel>
-            </Border>
-            
-            <!-- Button End -->
     </Panel>
 </UserControl>

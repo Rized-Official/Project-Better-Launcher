@@ -3,5 +3,7 @@
   "AcceptedInstalled": false,
   "BackgroundName": "defaultbackground.jpg",
   "GameLocation": "",
-  "SharedOpinion": false
+  "SharedOpinion": false,
+  "InstalledVersion": "NONE",
+  "BackgroundAnimation": true
 }

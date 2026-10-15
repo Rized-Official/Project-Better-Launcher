@@ -64,7 +64,7 @@ public partial class HowToInstall : UserControl
         }
         _canUnderstood = true;
 
-        UnderstoodButton.Content = "Whatched it!";
+        UnderstoodButton.Content = "Watched it!";
     }
 
     private void OpenInBrowser_OnClick(object? sender, RoutedEventArgs e)
