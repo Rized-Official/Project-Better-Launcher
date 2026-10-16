@@ -191,8 +191,6 @@ public partial class MainWindow : Window
                     _pakFileName = modInfo.PakName;
                 }
 
-                Changelog.SetChangelog(modInfo.ChangelogTitle, modInfo.ChangelogData);
-
                 VersionText.Text = $"Newest version: {_latestVersion}";
 
                 string paksFolder = GetPaksFolderPath();
@@ -200,6 +198,30 @@ public partial class MainWindow : Window
 
                 bool pakExists = !string.IsNullOrEmpty(paksFolder) && File.Exists(pakFilePath);
                 bool isUpToDate = _currentSettings.InstalledVersion == _latestVersion;
+
+                bool isAlreadySetup = _currentSettings.AcceptedInstalled;
+                bool isNewChangelogVersion = _currentSettings.LastSeenChangelogVersion != _latestVersion;
+
+                if (!isAlreadySetup)
+                {
+                    _currentSettings.LastSeenChangelogVersion = _latestVersion;
+                    JsonStorageService.Save(SettingsFile, _currentSettings);
+                    Changelog.SetChangelog(modInfo.ChangelogTitle, modInfo.ChangelogData, _latestVersion, false);
+                }
+                else if (isNewChangelogVersion || !isUpToDate)
+                {
+                    _currentSettings.LastSeenChangelogVersion = _latestVersion;
+                    JsonStorageService.Save(SettingsFile, _currentSettings);
+
+                    Changelog.SetChangelog(modInfo.ChangelogTitle, modInfo.ChangelogData, _latestVersion, true);
+                    BottomLeftButtonsPanel.IsVisible = false;
+                    Changelog.IsVisible = true;
+                    TopBar.SetState("New Update!");
+                }
+                else
+                {
+                    Changelog.SetChangelog(modInfo.ChangelogTitle, modInfo.ChangelogData, _latestVersion, false);
+                }
 
                 if (!pakExists || !isUpToDate)
                 {
@@ -310,6 +332,7 @@ public partial class MainWindow : Window
 
             _currentSettings = JsonStorageService.Load(SettingsFile, _currentSettings);
             _currentSettings.InstalledVersion = _latestVersion;
+            _currentSettings.LastSeenChangelogVersion = _latestVersion;
             JsonStorageService.Save(SettingsFile, _currentSettings);
 
             _needsDownload = false;

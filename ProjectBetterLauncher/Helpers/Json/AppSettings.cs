@@ -15,4 +15,6 @@ public class AppSettings
     public string InstalledVersion { get; set; } = "NONE";
 
     public bool BackgroundAnimation { get; set; } = true;
+
+    public string LastSeenChangelogVersion { get; set; } = "NONE";
 }

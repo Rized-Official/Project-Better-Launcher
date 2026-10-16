@@ -70,6 +70,20 @@ public partial class Settings : UserControl
         MainWindow.Instance?.ApplyBackgroundAnimationState();
     }
 
+    private void WatchTutorial_OnClick(object? sender, RoutedEventArgs e)
+    {
+        TextChangeEffect.IsVisible = false;
+        App.PlaySound(_clickSoundPath);
+
+        if (MainWindow.Instance != null)
+        {
+            MainWindow.Instance.Settings.IsVisible = false;
+            MainWindow.Instance.HowToInstall.OpenFromSettings();
+            MainWindow.Instance.HowToInstall.IsVisible = true;
+            TopBar.SetState("In Tutorial");
+        }
+    }
+
     private async void ChnageBackground_OnClick(object? sender, RoutedEventArgs e)
     {
         App.PlaySound(_clickSoundPath);
@@ -159,6 +173,7 @@ public partial class Settings : UserControl
         _currentSettings.BackgroundName = "defaultbackground.jpg";
         _currentSettings.AcceptedInstalled = false;
         _currentSettings.BackgroundAnimation = true;
+        _currentSettings.LastSeenChangelogVersion = "NONE";
         
         JsonStorageService.Save(_settingsFile, _currentSettings);
         

@@ -24,26 +24,74 @@ public partial class HowToInstall : UserControl
     public HowToInstall()
     {
         InitializeComponent();
-        CountTo10();
         
         _currentSettings = JsonStorageService.Load(SettingsFile, new AppSettings());
+
+        if (_currentSettings.AcceptedInstalled)
+        {
+            _canUnderstood = true;
+            UnderstoodButton.Content = "Watched it!";
+            StopVideo();
+        }
+        else
+        {
+            CountTo10();
+        }
+    }
+
+    public void OpenFromSettings()
+    {
+        _canUnderstood = true;
+        UnderstoodButton.Content = "Watched it!";
+
+        try
+        {
+            if (NativeWebView != null)
+            {
+                NativeWebView.IsVisible = true;
+                NativeWebView.Source = new Uri(_videoLink);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
+    private void StopVideo()
+    {
+        try
+        {
+            if (NativeWebView != null)
+            {
+                NativeWebView.Source = new Uri("about:blank");
+                NativeWebView.IsVisible = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 
     private void Understood_OnClick(object? sender, RoutedEventArgs e)
     {
-        if (_canUnderstood == true)
+        if (_canUnderstood)
         {
             App.PlaySound(_clickSoundPath);
 
-            _currentSettings.AcceptedInstalled = true;
+            StopVideo();
 
-            MainWindow.Instance?.HowToInstall.IsVisible = false;
-        
+            _currentSettings = JsonStorageService.Load(SettingsFile, new AppSettings());
+            _currentSettings.AcceptedInstalled = true;
             JsonStorageService.Save(SettingsFile, _currentSettings);
-        }
-        else
-        {
-            
+
+            if (MainWindow.Instance != null)
+            {
+                MainWindow.Instance.HowToInstall.IsVisible = false;
+                MainWindow.Instance.BottomLeftButtonsPanel.IsVisible = true;
+                TopBar.SetState(MainWindow.StateAtTheMoment);
+            }
         }
     }
 
@@ -60,10 +108,13 @@ public partial class HowToInstall : UserControl
         {
             await Task.Delay(1000);
             countdown--;
-            UnderstoodButton.Content = "Watch the video... " + countdown + "s";
+            if (!_canUnderstood)
+            {
+                UnderstoodButton.Content = "Watch the video... " + countdown + "s";
+            }
         }
+        
         _canUnderstood = true;
-
         UnderstoodButton.Content = "Watched it!";
     }
 
@@ -71,6 +122,8 @@ public partial class HowToInstall : UserControl
     {
         try
         {
+            StopVideo();
+
             Process videoBrowserProcess = new Process();
             videoBrowserProcess.StartInfo.UseShellExecute = true;
             videoBrowserProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;

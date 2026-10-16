@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
              x:Class="ProjectBetterLauncher.Views.Changelog"
-             Background="rgba(0,0,0,0.75)">
+             Background="rgba(0,0,0,0.82)">
 
     <UserControl.Styles>
         <Style Selector="ScrollBar">
@@ -15,6 +15,19 @@
             <Setter Property="Background" Value="White"/>
             <Setter Property="CornerRadius" Value="0"/>
         </Style>
+
+        <Style Selector="Border.changelogImg">
+            <Setter Property="RenderTransform" Value="scale(1)"/>
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.18" Easing="CubicEaseOut"/>
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="Border.changelogImg:pointerover">
+            <Setter Property="RenderTransform" Value="scale(1.02)"/>
+            <Setter Property="BorderBrush" Value="Yellow"/>
+        </Style>
     </UserControl.Styles>
 
     <Panel>
@@ -22,45 +35,57 @@
                     VerticalAlignment="Center"
                     Spacing="14">
 
-            <TextBlock FontFamily="{StaticResource Cartoon}" 
-                       HorizontalAlignment="Center" 
-                       Foreground="White" 
-                       FontSize="24" 
-                       TextAlignment="Center"
-                       Text="WHAT'S NEW">
-                <TextBlock.Effect>
-                    <DropShadowEffect BlurRadius="8" Color="Black" Opacity="0.9"/>
-                </TextBlock.Effect>
-            </TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="12">
+                <Rectangle Width="40" Height="3" Fill="Yellow" VerticalAlignment="Center"/>
+                <TextBlock FontFamily="{StaticResource Cartoon}" 
+                           HorizontalAlignment="Center" 
+                           Foreground="White" 
+                           FontSize="24" 
+                           TextAlignment="Center"
+                           Text="PATCH NOTES">
+                    <TextBlock.Effect>
+                        <DropShadowEffect BlurRadius="8" Color="Black" Opacity="0.9"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <Rectangle Width="40" Height="3" Fill="Yellow" VerticalAlignment="Center"/>
+            </StackPanel>
 
             <Border BorderBrush="White" 
                     BorderThickness="3" 
-                    Width="820"
-                    Height="520"
-                    Background="#080808"
+                    Width="860"
+                    Height="560"
+                    Background="#070707"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
                 <Border.Effect>
-                    <DropShadowEffect BlurRadius="25" Color="Black" Opacity="0.95"/>
+                    <DropShadowEffect BlurRadius="30" Color="Black" Opacity="0.98"/>
                 </Border.Effect>
 
-                <Grid RowDefinitions="Auto, *">
+                <Grid RowDefinitions="Auto, *, Auto">
                     <Border Grid.Row="0"
-                            Background="#121212"
-                            BorderBrush="rgba(255,255,255,0.25)"
+                            Background="#111111"
+                            BorderBrush="rgba(255,255,255,0.22)"
                             BorderThickness="0, 0, 0, 2"
-                            Padding="24, 18">
-                        <StackPanel Spacing="4" HorizontalAlignment="Center">
-                            <TextBlock Text="UPDATE LOG"
-                                       FontFamily="{StaticResource VCR}"
-                                       FontSize="11"
-                                       Foreground="Gray"
-                                       HorizontalAlignment="Center"/>
+                            Padding="26, 18">
+                        <StackPanel Spacing="6" HorizontalAlignment="Center">
+                            <Border Background="rgba(255, 255, 0, 0.12)"
+                                    BorderBrush="Yellow"
+                                    BorderThickness="1"
+                                    Padding="10, 2"
+                                    HorizontalAlignment="Center">
+                                <TextBlock Name="ChangelogBadgeText"
+                                           Text="OFFICIAL UPDATE"
+                                           FontFamily="{StaticResource VCR}"
+                                           FontSize="10"
+                                           Foreground="Yellow"
+                                           HorizontalAlignment="Center"/>
+                            </Border>
+
                             <TextBlock Name="ChangelogTitleText"
                                        Text="LOADING UPDATE..."
                                        FontFamily="{StaticResource VCR}"
-                                       FontSize="22"
-                                       Foreground="Yellow"
+                                       FontSize="24"
+                                       Foreground="White"
                                        TextAlignment="Center"
                                        TextWrapping="Wrap"
                                        HorizontalAlignment="Center">
@@ -74,12 +99,68 @@
                     <ScrollViewer Grid.Row="1"
                                   VerticalScrollBarVisibility="Auto"
                                   HorizontalScrollBarVisibility="Disabled"
-                                  Margin="20, 16, 16, 18"
+                                  Margin="24, 18, 18, 14"
                                   Padding="0, 0, 14, 0">
                         <StackPanel Name="ChangelogItemsPanel" 
                                     Spacing="12" 
                                     HorizontalAlignment="Stretch"/>
                     </ScrollViewer>
+
+                    <Border Grid.Row="2"
+                            Background="#111111"
+                            BorderBrush="rgba(255,255,255,0.2)"
+                            BorderThickness="0, 2, 0, 0"
+                            Padding="16, 12">
+                        <Border BorderBrush="White"
+                                BorderThickness="3"
+                                Width="280"
+                                Height="38"
+                                HorizontalAlignment="Center">
+                            <Border.Styles>
+                                <Style Selector="Border">
+                                    <Setter Property="RenderTransform" Value="scale(1)"/>
+                                    <Setter Property="Transitions">
+                                        <Transitions>
+                                            <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
+                                            <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseInOut"/>
+                                        </Transitions>
+                                    </Setter>
+                                </Style>
+                                <Style Selector="Border:pointerover">
+                                    <Setter Property="Background" Value="White"/>
+                                    <Setter Property="RenderTransform" Value="scale(1.06)"/>
+                                </Style>
+                            </Border.Styles>
+                            <Panel>
+                                <Button Foreground="White"
+                                        Click="BackButton_OnClick"
+                                        PointerEntered="BackButton_OnPointerEntered"
+                                        Cursor="Hand"
+                                        CornerRadius="0"
+                                        HorizontalAlignment="Stretch"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Background="Black"
+                                        Height="32"
+                                        FontSize="15"
+                                        TextElement.FontFamily="{StaticResource VCR}">
+                                    <Button.Styles>
+                                        <Style Selector="Button">
+                                            <Setter Property="Foreground" Value="White"/>
+                                        </Style>
+                                        <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                            <Setter Property="Foreground" Value="Black"/>
+                                        </Style>
+                                        <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Background" Value="Black"/>
+                                        </Style>
+                                    </Button.Styles>
+                                    AWESOME!
+                                </Button>
+                            </Panel>
+                        </Border>
+                    </Border>
                 </Grid>
             </Border>
         </StackPanel>
@@ -139,5 +220,109 @@
                 </Border>
             </Panel>
         </StackPanel>
+
+        <Panel Name="ImageViewerOverlay"
+               IsVisible="False"
+               Background="rgba(0, 0, 0, 0.94)">
+            <Panel Background="Transparent"
+                   PointerPressed="OverlayBackground_OnPointerPressed"/>
+
+            <Border Name="ImageViewport"
+                    BorderBrush="White"
+                    BorderThickness="3"
+                    Background="#050505"
+                    MaxWidth="1020"
+                    MaxHeight="640"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    ClipToBounds="True"
+                    Cursor="Hand"
+                    PointerPressed="ImageViewport_OnPointerPressed">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="35" Color="Black" Opacity="1"/>
+                </Border.Effect>
+
+                <Image Name="FullscreenImage"
+                       Stretch="Uniform"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       IsHitTestVisible="False"
+                       RenderTransformOrigin="50%,50%"
+                       RenderTransform="scale(1)">
+                    <Image.Transitions>
+                        <Transitions>
+                            <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.22" Easing="CubicEaseOut"/>
+                        </Transitions>
+                    </Image.Transitions>
+                </Image>
+            </Border>
+
+            <Border Background="rgba(15, 15, 15, 0.9)"
+                    BorderBrush="Yellow"
+                    BorderThickness="1"
+                    Padding="16, 8"
+                    Margin="0, 0, 0, 24"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    IsHitTestVisible="False">
+                <TextBlock Name="ZoomHintText"
+                           Text="CLICK ON ANY SPOT TO ZOOM IN  |  CLICK OUTSIDE OR 'CLOSE' TO EXIT"
+                           FontFamily="{StaticResource VCR}"
+                           FontSize="12"
+                           Foreground="Yellow"/>
+            </Border>
+
+            <Border BorderBrush="White"
+                    BorderThickness="3"
+                    Width="120"
+                    Height="38"
+                    Margin="24, 45, 24, 24"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top">
+                <Border.Styles>
+                    <Style Selector="Border">
+                        <Setter Property="RenderTransform" Value="scale(1)"/>
+                        <Setter Property="Transitions">
+                            <Transitions>
+                                <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
+                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseInOut"/>
+                            </Transitions>
+                        </Setter>
+                    </Style>
+                    <Style Selector="Border:pointerover">
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="RenderTransform" Value="scale(1.08)"/>
+                    </Style>
+                </Border.Styles>
+                <Panel>
+                    <Button Foreground="White"
+                            Click="CloseImageViewer_OnClick"
+                            PointerEntered="BackButton_OnPointerEntered"
+                            Cursor="Hand"
+                            CornerRadius="0"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Background="#FF1E1E"
+                            Height="32"
+                            FontSize="14"
+                            TextElement.FontFamily="{StaticResource VCR}">
+                        <Button.Styles>
+                            <Style Selector="Button">
+                                <Setter Property="Foreground" Value="White"/>
+                            </Style>
+                            <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Style>
+                            <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Background" Value="#CC0000"/>
+                            </Style>
+                        </Button.Styles>
+                        Close [X]
+                    </Button>
+                </Panel>
+            </Border>
+        </Panel>
     </Panel>
 </UserControl>
