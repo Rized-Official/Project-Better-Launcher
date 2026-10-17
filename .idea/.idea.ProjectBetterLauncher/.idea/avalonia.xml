@@ -5,6 +5,7 @@
       <map>
         <entry key="ProjectBetterLauncher/App.axaml" value="ProjectBetterLauncher/ProjectBetterLauncher.csproj" />
         <entry key="ProjectBetterLauncher/Views/Changelog.axaml" value="ProjectBetterLauncher/ProjectBetterLauncher.csproj" />
+        <entry key="ProjectBetterLauncher/Views/Hibernation.axaml" value="ProjectBetterLauncher/ProjectBetterLauncher.csproj" />
         <entry key="ProjectBetterLauncher/Views/HowToInstall.axaml" value="ProjectBetterLauncher/ProjectBetterLauncher.csproj" />
         <entry key="ProjectBetterLauncher/Views/Launcher.axaml" value="ProjectBetterLauncher/ProjectBetterLauncher.csproj" />
         <entry key="ProjectBetterLauncher/Views/MainWindow.axaml" value="ProjectBetterLauncher/ProjectBetterLauncher.csproj" />

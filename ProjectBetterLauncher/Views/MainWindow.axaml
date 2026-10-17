@@ -23,394 +23,397 @@
     </Design.DataContext>
 
     <Panel>
-        <UserControl>
-            <UserControl.Styles>
-                <Style Selector="Image.bg">
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
-                        </Setter.Value>
-                    </Setter>
+        <Panel Name="MainContentPanel">
+            <UserControl>
+                <UserControl.Styles>
+                    <Style Selector="Image.bg">
+                        <Setter Property="RenderTransform">
+                            <Setter.Value>
+                                <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                            </Setter.Value>
+                        </Setter>
 
-                    <Setter Property="RenderTransformOrigin" Value="50%,50%"/>
+                        <Setter Property="RenderTransformOrigin" Value="50%,50%"/>
 
-                    <Style.Animations>
-                        <Animation
-                            Duration="0:0:20"
-                            IterationCount="Infinite"
-                            PlaybackDirection="Alternate"
-                            Easing="SineEaseInOut">
+                        <Style.Animations>
+                            <Animation
+                                Duration="0:0:20"
+                                IterationCount="Infinite"
+                                PlaybackDirection="Alternate"
+                                Easing="SineEaseInOut">
 
-                            <KeyFrame Cue="0%">
-                                <Setter Property="ScaleTransform.ScaleX" Value="1.2"/>
-                                <Setter Property="ScaleTransform.ScaleY" Value="1.2"/>
-                                <Setter Property="TranslateTransform.X" Value="-15"/>
-                                <Setter Property="TranslateTransform.Y" Value="20"/>
-                                <Setter Property="RotateTransform.Angle" Value="-2"/>
-                            </KeyFrame>
-                            <KeyFrame Cue="50%">
-                                <Setter Property="TranslateTransform.X" Value="25"/>
-                                <Setter Property="TranslateTransform.Y" Value="25"/>
-                                <Setter Property="RotateTransform.Angle" Value="3"/>
-                            </KeyFrame>
-                            <KeyFrame Cue="100%">
-                                <Setter Property="ScaleTransform.ScaleX" Value="1.4"/>
-                                <Setter Property="ScaleTransform.ScaleY" Value="1.4"/>
-                                <Setter Property="TranslateTransform.X" Value="15"/>
-                                <Setter Property="TranslateTransform.Y" Value="20"/>
-                                <Setter Property="RotateTransform.Angle" Value="2"/>
-                            </KeyFrame>
+                                <KeyFrame Cue="0%">
+                                    <Setter Property="ScaleTransform.ScaleX" Value="1.2"/>
+                                    <Setter Property="ScaleTransform.ScaleY" Value="1.2"/>
+                                    <Setter Property="TranslateTransform.X" Value="-15"/>
+                                    <Setter Property="TranslateTransform.Y" Value="20"/>
+                                    <Setter Property="RotateTransform.Angle" Value="-2"/>
+                                </KeyFrame>
+                                <KeyFrame Cue="50%">
+                                    <Setter Property="TranslateTransform.X" Value="25"/>
+                                    <Setter Property="TranslateTransform.Y" Value="25"/>
+                                    <Setter Property="RotateTransform.Angle" Value="3"/>
+                                </KeyFrame>
+                                <KeyFrame Cue="100%">
+                                    <Setter Property="ScaleTransform.ScaleX" Value="1.4"/>
+                                    <Setter Property="ScaleTransform.ScaleY" Value="1.4"/>
+                                    <Setter Property="TranslateTransform.X" Value="15"/>
+                                    <Setter Property="TranslateTransform.Y" Value="20"/>
+                                    <Setter Property="RotateTransform.Angle" Value="2"/>
+                                </KeyFrame>
 
-                        </Animation>
-                    </Style.Animations>
-                </Style>
-            </UserControl.Styles>
-            
-            <Image
-                Classes="bg"
-                Name="BackgroundImage"
-                Source="avares://ProjectBetterLauncher/Assets/defaultbackground.jpg"
-                Stretch="UniformToFill"
-                IsHitTestVisible="False"
-                />
-        </UserControl>
+                            </Animation>
+                        </Style.Animations>
+                    </Style>
+                </UserControl.Styles>
+                
+                <Image
+                    Classes="bg"
+                    Name="BackgroundImage"
+                    Source="avares://ProjectBetterLauncher/Assets/defaultbackground.jpg"
+                    Stretch="UniformToFill"
+                    IsHitTestVisible="False"
+                    />
+            </UserControl>
 
-        <Border IsHitTestVisible="False">
-            <Border.Background>
-                <RadialGradientBrush Center="50%,50%" GradientOrigin="50%,50%" RadiusX="75%" RadiusY="75%">
-                    <GradientStop Offset="0" Color="rgba(0,0,0,0.1)"/>
-                    <GradientStop Offset="1" Color="rgba(0,0,0,0.82)"/>
-                </RadialGradientBrush>
-            </Border.Background>
-        </Border>
+            <Border IsHitTestVisible="False">
+                <Border.Background>
+                    <RadialGradientBrush Center="50%,50%" GradientOrigin="50%,50%" RadiusX="75%" RadiusY="75%">
+                        <GradientStop Offset="0" Color="rgba(0,0,0,0.1)"/>
+                        <GradientStop Offset="1" Color="rgba(0,0,0,0.82)"/>
+                    </RadialGradientBrush>
+                </Border.Background>
+            </Border>
 
-        <StackPanel VerticalAlignment="Center" 
-                    HorizontalAlignment="Center"
-                    Spacing="14">
-            
-            <Image
-                Source="avares://ProjectBetterLauncher/Assets/PJBTLogo.png"
-                Width="620"
-                Margin="-60, -70, -60, -55">
-                <Image.Effect>
-                    <DropShadowEffect BlurRadius="25" Color="Black" Opacity="0.95"></DropShadowEffect>
-                </Image.Effect>
-            </Image>
+            <StackPanel VerticalAlignment="Center" 
+                        HorizontalAlignment="Center"
+                        Spacing="14">
+                
+                <Image
+                    Source="avares://ProjectBetterLauncher/Assets/PJBTLogo.png"
+                    Width="620"
+                    Margin="-60, -70, -60, -55">
+                    <Image.Effect>
+                        <DropShadowEffect BlurRadius="25" Color="Black" Opacity="0.95"></DropShadowEffect>
+                    </Image.Effect>
+                </Image>
 
-            <Border Background="rgba(8, 8, 8, 0.78)"
-                    BorderBrush="rgba(255, 255, 255, 0.25)"
-                    BorderThickness="2"
-                    Padding="28, 24"
-                    HorizontalAlignment="Center">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="25" Color="Black" Opacity="0.9"/>
-                </Border.Effect>
+                <Border Background="rgba(8, 8, 8, 0.78)"
+                        BorderBrush="rgba(255, 255, 255, 0.25)"
+                        BorderThickness="2"
+                        Padding="28, 24"
+                        HorizontalAlignment="Center">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="25" Color="Black" Opacity="0.9"/>
+                    </Border.Effect>
 
-                <StackPanel Spacing="14" HorizontalAlignment="Center">
+                    <StackPanel Spacing="14" HorizontalAlignment="Center">
 
-                    <Border BorderBrush="White"
-                            IsVisible="True"
-                            Name="PlayButton"
-                            BorderThickness="3" 
-                            Width="420">
-                        <Border.Styles>
-                            <Style Selector="Border">
-                                <Setter Property="RenderTransform" Value="scale(1)"/>
-                                <Setter Property="Transitions">
-                                    <Transitions>
-                                        <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
-                                        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseInOut"/>
-                                    </Transitions>
-                                </Setter>
-                            </Style>
+                        <Border BorderBrush="White"
+                                IsVisible="True"
+                                Name="PlayButton"
+                                BorderThickness="3" 
+                                Width="420">
+                            <Border.Styles>
+                                <Style Selector="Border">
+                                    <Setter Property="RenderTransform" Value="scale(1)"/>
+                                    <Setter Property="Transitions">
+                                        <Transitions>
+                                            <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
+                                            <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseInOut"/>
+                                        </Transitions>
+                                    </Setter>
+                                </Style>
 
-                            <Style Selector="Border:pointerover">
-                                <Setter Property="Background" Value="White"/>
-                                <Setter Property="RenderTransform" Value="scale(1.05)"/>
-                            </Style>
-                        </Border.Styles>
-                        <Panel>
-                            <Button Name="PlayButtonAction"
-                                    Foreground="White" 
-                                    Click="PlayButton_Click" 
-                                    PointerEntered="InputElement_OnPointerEntered"
-                                    CornerRadius="0" 
-                                    Cursor="Hand"
-                                    HorizontalAlignment="Stretch"
-                                    HorizontalContentAlignment="Center" 
-                                    VerticalContentAlignment="Center"
-                                    Background="Black" 
-                                    VerticalAlignment="Center" 
-                                    Height="48"
-                                    FontSize="22"
-                                    TextElement.FontFamily="{StaticResource VCR}">
-                                <Button.Styles>
-                                    <Style Selector="Button">
-                                        <Setter Property="Foreground" Value="White"></Setter>
-                                    </Style>
-                                    <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                                        <Setter Property="Foreground" Value="Black"></Setter>
-                                    </Style>
-                                    <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                                        <Setter Property="Foreground" Value="White"></Setter>
-                                        <Setter Property="Background" Value="Black"></Setter>
-                                    </Style>
-                                    <Style Selector="Button:disabled /template/ ContentPresenter#PART_ContentPresenter">
-                                        <Setter Property="Background" Value="#2B2B2B"></Setter>
-                                        <Setter Property="Foreground" Value="#A0A0A0"></Setter>
-                                    </Style>
-                                </Button.Styles>
-                                Checking...
-                            </Button>
-                        </Panel>
-                    </Border>
-                    
-                    <Border BorderBrush="White"
-                            IsVisible="False"
-                            Name="StopButton"
-                            BorderThickness="3" 
-                            Width="420">
-                        <Border.Styles>
-                            <Style Selector="Border">
-                                <Setter Property="RenderTransform" Value="scale(1)"/>
-                                <Setter Property="Transitions">
-                                    <Transitions>
-                                        <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
-                                        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseInOut"/>
-                                    </Transitions>
-                                </Setter>
-                            </Style>
+                                <Style Selector="Border:pointerover">
+                                    <Setter Property="Background" Value="White"/>
+                                    <Setter Property="RenderTransform" Value="scale(1.05)"/>
+                                </Style>
+                            </Border.Styles>
+                            <Panel>
+                                <Button Name="PlayButtonAction"
+                                        Foreground="White" 
+                                        Click="PlayButton_Click" 
+                                        PointerEntered="InputElement_OnPointerEntered"
+                                        CornerRadius="0" 
+                                        Cursor="Hand"
+                                        HorizontalAlignment="Stretch"
+                                        HorizontalContentAlignment="Center" 
+                                        VerticalContentAlignment="Center"
+                                        Background="Black" 
+                                        VerticalAlignment="Center" 
+                                        Height="48"
+                                        FontSize="22"
+                                        TextElement.FontFamily="{StaticResource VCR}">
+                                    <Button.Styles>
+                                        <Style Selector="Button">
+                                            <Setter Property="Foreground" Value="White"></Setter>
+                                        </Style>
+                                        <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                            <Setter Property="Foreground" Value="Black"></Setter>
+                                        </Style>
+                                        <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                                            <Setter Property="Foreground" Value="White"></Setter>
+                                            <Setter Property="Background" Value="Black"></Setter>
+                                        </Style>
+                                        <Style Selector="Button:disabled /template/ ContentPresenter#PART_ContentPresenter">
+                                            <Setter Property="Background" Value="#2B2B2B"></Setter>
+                                            <Setter Property="Foreground" Value="#A0A0A0"></Setter>
+                                        </Style>
+                                    </Button.Styles>
+                                    Checking...
+                                </Button>
+                            </Panel>
+                        </Border>
+                        
+                        <Border BorderBrush="White"
+                                IsVisible="False"
+                                Name="StopButton"
+                                BorderThickness="3" 
+                                Width="420">
+                            <Border.Styles>
+                                <Style Selector="Border">
+                                    <Setter Property="RenderTransform" Value="scale(1)"/>
+                                    <Setter Property="Transitions">
+                                        <Transitions>
+                                            <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
+                                            <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseInOut"/>
+                                        </Transitions>
+                                    </Setter>
+                                </Style>
 
-                            <Style Selector="Border:pointerover">
-                                <Setter Property="Background" Value="White"/>
-                                <Setter Property="RenderTransform" Value="scale(1.05)"/>
-                            </Style>
-                        </Border.Styles>
-                        <Panel>
-                            <Button Foreground="White" 
-                                    Click="CloseTheGame_OnClick" 
-                                    PointerEntered="InputElement_OnPointerEntered"
-                                    Cursor="Hand"
-                                    Name="CloseTheGame"
-                                    CornerRadius="0" 
-                                    HorizontalAlignment="Stretch"
-                                    HorizontalContentAlignment="Center" 
-                                    VerticalContentAlignment="Center"
-                                    Background="#FF1E1E" 
-                                    VerticalAlignment="Center" 
-                                    Height="48"
-                                    FontSize="22"
-                                    TextElement.FontFamily="{StaticResource VCR}">
-                                <Button.Styles>
-                                    <Style Selector="Button">
-                                        <Setter Property="Foreground" Value="White"></Setter>
-                                    </Style>
-                                    <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                                        <Setter Property="Foreground" Value="Black"></Setter>
-                                    </Style>
-                                    <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                                        <Setter Property="Foreground" Value="White"></Setter>
-                                        <Setter Property="Background" Value="#CC0000"></Setter>
-                                    </Style>
-                                </Button.Styles>
-                                Close The Game
-                            </Button>
-                        </Panel>
-                    </Border>
+                                <Style Selector="Border:pointerover">
+                                    <Setter Property="Background" Value="White"/>
+                                    <Setter Property="RenderTransform" Value="scale(1.05)"/>
+                                </Style>
+                            </Border.Styles>
+                            <Panel>
+                                <Button Foreground="White" 
+                                        Click="CloseTheGame_OnClick" 
+                                        PointerEntered="InputElement_OnPointerEntered"
+                                        Cursor="Hand"
+                                        Name="CloseTheGame"
+                                        CornerRadius="0" 
+                                        HorizontalAlignment="Stretch"
+                                        HorizontalContentAlignment="Center" 
+                                        VerticalContentAlignment="Center"
+                                        Background="#FF1E1E" 
+                                        VerticalAlignment="Center" 
+                                        Height="48"
+                                        FontSize="22"
+                                        TextElement.FontFamily="{StaticResource VCR}">
+                                    <Button.Styles>
+                                        <Style Selector="Button">
+                                            <Setter Property="Foreground" Value="White"></Setter>
+                                        </Style>
+                                        <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                            <Setter Property="Foreground" Value="Black"></Setter>
+                                        </Style>
+                                        <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                                            <Setter Property="Foreground" Value="White"></Setter>
+                                            <Setter Property="Background" Value="#CC0000"></Setter>
+                                        </Style>
+                                    </Button.Styles>
+                                    Close The Game
+                                </Button>
+                            </Panel>
+                        </Border>
 
-                    <Border Name="DownloadProgressBorder"
-                            BorderBrush="White"
-                            BorderThickness="3"
-                            Width="420"
-                            Height="32"
-                            Background="Black"
-                            IsVisible="False">
-                        <Panel>
-                            <ProgressBar Name="DownloadProgressBar"
-                                         Minimum="0"
-                                         Maximum="100"
-                                         Value="0"
-                                         Height="26"
-                                         CornerRadius="0"
-                                         Background="Black"
-                                         Foreground="White"
-                                         HorizontalAlignment="Stretch"
-                                         VerticalAlignment="Stretch" />
-                            <TextBlock Name="DownloadProgressText"
-                                       Text="0%"
-                                       FontFamily="{StaticResource VCR}"
-                                       FontSize="14"
-                                       Foreground="White"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center">
-                                <TextBlock.Effect>
-                                    <DropShadowEffect BlurRadius="4" Color="Black" OffsetX="1" OffsetY="1"/>
-                                </TextBlock.Effect>
-                            </TextBlock>
-                        </Panel>
-                    </Border>
+                        <Border Name="DownloadProgressBorder"
+                                BorderBrush="White"
+                                BorderThickness="3"
+                                Width="420"
+                                Height="32"
+                                Background="Black"
+                                IsVisible="False">
+                            <Panel>
+                                <ProgressBar Name="DownloadProgressBar"
+                                             Minimum="0"
+                                             Maximum="100"
+                                             Value="0"
+                                             Height="26"
+                                             CornerRadius="0"
+                                             Background="Black"
+                                             Foreground="White"
+                                             HorizontalAlignment="Stretch"
+                                             VerticalAlignment="Stretch" />
+                                <TextBlock Name="DownloadProgressText"
+                                           Text="0%"
+                                           FontFamily="{StaticResource VCR}"
+                                           FontSize="14"
+                                           Foreground="White"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center">
+                                    <TextBlock.Effect>
+                                        <DropShadowEffect BlurRadius="4" Color="Black" OffsetX="1" OffsetY="1"/>
+                                    </TextBlock.Effect>
+                                </TextBlock>
+                            </Panel>
+                        </Border>
 
-                    <Rectangle Height="1" Fill="rgba(255,255,255,0.18)" Width="380"/>
+                        <Rectangle Height="1" Fill="rgba(255,255,255,0.18)" Width="380"/>
 
-                    <StackPanel Spacing="6" HorizontalAlignment="Center">
-                        <TextBlock TextElement.FontFamily="{StaticResource Cartoon}" 
-                                   Foreground="White" 
-                                   HorizontalAlignment="Center" 
-                                   VerticalAlignment="Center" 
-                                   TextAlignment="Center"
-                                   Name="StatusText"
-                                   FontSize="11">
-                            Checking for updates...
-                            <TextBlock.Effect>
-                                <DropShadowEffect BlurRadius="5" OffsetX="0" OffsetY="0"></DropShadowEffect>
-                            </TextBlock.Effect>
-                        </TextBlock>
-
-                        <Border Background="rgba(255, 255, 0, 0.08)"
-                                BorderBrush="rgba(255, 255, 0, 0.35)"
-                                BorderThickness="1"
-                                Padding="12, 4"
-                                HorizontalAlignment="Center">
-                            <TextBlock TextElement.FontFamily="{StaticResource VCR}" 
-                                       Foreground="Yellow" 
+                        <StackPanel Spacing="6" HorizontalAlignment="Center">
+                            <TextBlock TextElement.FontFamily="{StaticResource Cartoon}" 
+                                       Foreground="White" 
                                        HorizontalAlignment="Center" 
                                        VerticalAlignment="Center" 
-                                       Name="VersionText"
+                                       TextAlignment="Center"
+                                       Name="StatusText"
                                        FontSize="11">
-                                Newest version: LOADING
+                                Checking for updates...
+                                <TextBlock.Effect>
+                                    <DropShadowEffect BlurRadius="5" OffsetX="0" OffsetY="0"></DropShadowEffect>
+                                </TextBlock.Effect>
                             </TextBlock>
-                        </Border>
+
+                            <Border Background="rgba(255, 255, 0, 0.08)"
+                                    BorderBrush="rgba(255, 255, 0, 0.35)"
+                                    BorderThickness="1"
+                                    Padding="12, 4"
+                                    HorizontalAlignment="Center">
+                                <TextBlock TextElement.FontFamily="{StaticResource VCR}" 
+                                           Foreground="Yellow" 
+                                           HorizontalAlignment="Center" 
+                                           VerticalAlignment="Center" 
+                                           Name="VersionText"
+                                           FontSize="11">
+                                    Newest version: LOADING
+                                </TextBlock>
+                            </Border>
+                        </StackPanel>
+
                     </StackPanel>
+                </Border>
+            </StackPanel>
+            
+            <StackPanel Name="BottomLeftButtonsPanel"
+                        Orientation="Horizontal" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Bottom"
+                        Margin="16"
+                        Spacing="12">
+                <Border BorderBrush="White" 
+                        Name="OpenSettingsBorder"
+                        IsVisible="True"
+                        BorderThickness="3" 
+                        Width="42"
+                        Height="38">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="10" Color="Black" Opacity="0.8"/>
+                    </Border.Effect>
+                    <Border.Styles>
+                        <Style Selector="Border">
+                            <Setter Property="RenderTransform" Value="scale(1)"/>
+                            <Setter Property="Transitions">
+                                <Transitions>
+                                    <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
+                                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseInOut"/>
+                                </Transitions>
+                            </Setter>
+                        </Style>
 
-                </StackPanel>
-            </Border>
-        </StackPanel>
-        
-        <StackPanel Name="BottomLeftButtonsPanel"
-                    Orientation="Horizontal" 
-                    HorizontalAlignment="Left" 
-                    VerticalAlignment="Bottom"
-                    Margin="16"
-                    Spacing="12">
-            <Border BorderBrush="White" 
-                    Name="OpenSettingsBorder"
-                    IsVisible="True"
-                    BorderThickness="3" 
-                    Width="42"
-                    Height="38">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="10" Color="Black" Opacity="0.8"/>
-                </Border.Effect>
-                <Border.Styles>
-                    <Style Selector="Border">
-                        <Setter Property="RenderTransform" Value="scale(1)"/>
-                        <Setter Property="Transitions">
-                            <Transitions>
-                                <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
-                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseInOut"/>
-                            </Transitions>
-                        </Setter>
-                    </Style>
+                        <Style Selector="Border:pointerover">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="RenderTransform" Value="scale(1.1)"/>
+                        </Style>
+                    </Border.Styles>
+                    <Panel>
+                        <Button Foreground="White" 
+                                Click="OpenSettings_Click"
+                                PointerEntered="InputElement_OnPointerEntered"
+                                Cursor="Hand"
+                                CornerRadius="0" 
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Background="Black" 
+                                VerticalAlignment="Center" 
+                                Height="32"
+                                FontSize="10"
+                                TextElement.FontFamily="{StaticResource VCR}">
+                            <Button.Styles>
+                                <Style Selector="Button">
+                                    <Setter Property="Foreground" Value="White"></Setter>
+                                </Style>
+                                <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                    <Setter Property="Foreground" Value="Black"></Setter>
+                                </Style>
+                                <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                                    <Setter Property="Foreground" Value="White"></Setter>
+                                    <Setter Property="Background" Value="Black"></Setter>
+                                </Style>
+                            </Button.Styles>
+                            <Image 
+                                Source="avares://ProjectBetterLauncher/Assets/icon.ico"
+                                Margin="-5"
+                                ></Image>
+                        </Button>
+                    </Panel>
+                </Border>
 
-                    <Style Selector="Border:pointerover">
-                        <Setter Property="Background" Value="White"/>
-                        <Setter Property="RenderTransform" Value="scale(1.1)"/>
-                    </Style>
-                </Border.Styles>
-                <Panel>
-                    <Button Foreground="White" 
-                            Click="OpenSettings_Click"
-                            PointerEntered="InputElement_OnPointerEntered"
-                            Cursor="Hand"
-                            CornerRadius="0" 
-                            HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Center" 
-                            VerticalContentAlignment="Center"
-                            Background="Black" 
-                            VerticalAlignment="Center" 
-                            Height="32"
-                            FontSize="10"
-                            TextElement.FontFamily="{StaticResource VCR}">
-                        <Button.Styles>
-                            <Style Selector="Button">
-                                <Setter Property="Foreground" Value="White"></Setter>
-                            </Style>
-                            <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                                <Setter Property="Foreground" Value="Black"></Setter>
-                            </Style>
-                            <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                                <Setter Property="Foreground" Value="White"></Setter>
-                                <Setter Property="Background" Value="Black"></Setter>
-                            </Style>
-                        </Button.Styles>
-                        <Image 
-                            Source="avares://ProjectBetterLauncher/Assets/icon.ico"
-                            Margin="-5"
-                            ></Image>
-                    </Button>
-                </Panel>
-            </Border>
+                <Border BorderBrush="White" 
+                        Name="OpenChangelogBorder"
+                        IsVisible="True"
+                        BorderThickness="3" 
+                        Width="150"
+                        Height="38">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="10" Color="Black" Opacity="0.8"/>
+                    </Border.Effect>
+                    <Border.Styles>
+                        <Style Selector="Border">
+                            <Setter Property="RenderTransform" Value="scale(1)"/>
+                            <Setter Property="Transitions">
+                                <Transitions>
+                                    <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
+                                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseInOut"/>
+                                </Transitions>
+                            </Setter>
+                        </Style>
 
-            <Border BorderBrush="White" 
-                    Name="OpenChangelogBorder"
-                    IsVisible="True"
-                    BorderThickness="3" 
-                    Width="150"
-                    Height="38">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="10" Color="Black" Opacity="0.8"/>
-                </Border.Effect>
-                <Border.Styles>
-                    <Style Selector="Border">
-                        <Setter Property="RenderTransform" Value="scale(1)"/>
-                        <Setter Property="Transitions">
-                            <Transitions>
-                                <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
-                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" Easing="CubicEaseInOut"/>
-                            </Transitions>
-                        </Setter>
-                    </Style>
-
-                    <Style Selector="Border:pointerover">
-                        <Setter Property="Background" Value="White"/>
-                        <Setter Property="RenderTransform" Value="scale(1.08)"/>
-                    </Style>
-                </Border.Styles>
-                <Panel>
-                    <Button Foreground="White" 
-                            Click="OpenChangelog_Click"
-                            PointerEntered="InputElement_OnPointerEntered"
-                            Cursor="Hand"
-                            CornerRadius="0" 
-                            HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Center" 
-                            VerticalContentAlignment="Center"
-                            Background="Black" 
-                            VerticalAlignment="Center" 
-                            Height="32"
-                            FontSize="14"
-                            TextElement.FontFamily="{StaticResource VCR}">
-                        <Button.Styles>
-                            <Style Selector="Button">
-                                <Setter Property="Foreground" Value="White"></Setter>
-                            </Style>
-                            <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                                <Setter Property="Foreground" Value="Black"></Setter>
-                            </Style>
-                            <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                                <Setter Property="Foreground" Value="White"></Setter>
-                                <Setter Property="Background" Value="Black"></Setter>
-                            </Style>
-                        </Button.Styles>
-                        Changelog
-                    </Button>
-                </Panel>
-            </Border>
-        </StackPanel>
+                        <Style Selector="Border:pointerover">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="RenderTransform" Value="scale(1.08)"/>
+                        </Style>
+                    </Border.Styles>
+                    <Panel>
+                        <Button Foreground="White" 
+                                Click="OpenChangelog_Click"
+                                PointerEntered="InputElement_OnPointerEntered"
+                                Cursor="Hand"
+                                CornerRadius="0" 
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"
+                                Background="Black" 
+                                VerticalAlignment="Center" 
+                                Height="32"
+                                FontSize="14"
+                                TextElement.FontFamily="{StaticResource VCR}">
+                            <Button.Styles>
+                                <Style Selector="Button">
+                                    <Setter Property="Foreground" Value="White"></Setter>
+                                </Style>
+                                <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                    <Setter Property="Foreground" Value="Black"></Setter>
+                                </Style>
+                                <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                                    <Setter Property="Foreground" Value="White"></Setter>
+                                    <Setter Property="Background" Value="Black"></Setter>
+                                </Style>
+                            </Button.Styles>
+                            Changelog
+                        </Button>
+                    </Panel>
+                </Border>
+            </StackPanel>
+        </Panel>
 
         <views:Settings IsVisible="False" Name="Settings"></views:Settings>
         <views:Changelog IsVisible="False" Name="Changelog"></views:Changelog>
         <views:HowToInstall IsVisible="False" Name="HowToInstall"></views:HowToInstall>
         <views:Opinion Name="Opinion" IsVisible="False"></views:Opinion>
+        <views:Hibernation IsVisible="False" Name="Hibernation"></views:Hibernation>
     </Panel>
 </Window>

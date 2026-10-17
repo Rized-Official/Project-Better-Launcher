@@ -1,0 +1,160 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
+             x:Class="ProjectBetterLauncher.Views.Hibernation"
+             Background="#040404">
+
+    <Panel>
+        <Border BorderBrush="rgba(255, 255, 255, 0.25)"
+                BorderThickness="2"
+                Background="#090909"
+                Width="520"
+                Padding="32, 28"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+            <StackPanel Spacing="18" HorizontalAlignment="Center">
+                
+                <Border Background="rgba(0,255,0, 0.1)"
+                        BorderBrush="Lime"
+                        BorderThickness="1"
+                        Padding="12, 4"
+                        HorizontalAlignment="Center">
+                    <TextBlock Text="LOW RESOURCE USAGE"
+                               FontFamily="{StaticResource VCR}"
+                               FontSize="11"
+                               Foreground="Lime"
+                               HorizontalAlignment="Center"/>
+                </Border>
+
+                <TextBlock Text="HIBERNATION MODE"
+                           FontFamily="{StaticResource Cartoon}"
+                           FontSize="22"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           TextAlignment="Center"/>
+
+                <Rectangle Height="1" Fill="rgba(255, 255, 255, 0.15)" Width="420"/>
+
+                <TextBlock Text="Background textures, animations, and visual effects have been unloaded from memory to maximize your FPS while playing Project: Better."
+                           FontFamily="{StaticResource VCR}"
+                           FontSize="13"
+                           LineHeight="20"
+                           Foreground="Gray"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap"
+                           Width="420"
+                           HorizontalAlignment="Center"/>
+
+                <StackPanel Spacing="10" HorizontalAlignment="Center" Margin="0, 4, 0, 0">
+                    
+                    <!-- Przycisk Stop Hibernation -->
+                    <Border BorderBrush="White"
+                            BorderThickness="3"
+                            Width="340"
+                            Height="44"
+                            HorizontalAlignment="Center">
+                        <Border.Styles>
+                            <Style Selector="Border">
+                                <Setter Property="RenderTransform" Value="scale(1)"/>
+                                <Setter Property="Transitions">
+                                    <Transitions>
+                                        <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
+                                        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.15" Easing="CubicEaseInOut"/>
+                                    </Transitions>
+                                </Setter>
+                            </Style>
+                            <Style Selector="Border:pointerover">
+                                <Setter Property="Background" Value="White"/>
+                                <Setter Property="RenderTransform" Value="scale(1.05)"/>
+                            </Style>
+                        </Border.Styles>
+                        <Panel>
+                            <Button Foreground="White"
+                                    Click="StopHibernation_OnClick"
+                                    PointerEntered="StopHibernation_OnPointerEntered"
+                                    Cursor="Hand"
+                                    CornerRadius="0"
+                                    HorizontalAlignment="Stretch"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    Background="Black"
+                                    Height="38"
+                                    FontSize="17"
+                                    TextElement.FontFamily="{StaticResource VCR}">
+                                <Button.Styles>
+                                    <Style Selector="Button">
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </Style>
+                                    <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                    </Style>
+                                    <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="Background" Value="Black"/>
+                                    </Style>
+                                </Button.Styles>
+                                Stop Hibernation
+                            </Button>
+                        </Panel>
+                    </Border>
+
+                    <!-- Przycisk Close The Game -->
+                    <Border BorderBrush="White"
+                            BorderThickness="3"
+                            Width="340"
+                            Height="44"
+                            HorizontalAlignment="Center">
+                        <Border.Styles>
+                            <Style Selector="Border">
+                                <Setter Property="RenderTransform" Value="scale(1)"/>
+                                <Setter Property="Transitions">
+                                    <Transitions>
+                                        <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
+                                        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.15" Easing="CubicEaseInOut"/>
+                                    </Transitions>
+                                </Setter>
+                            </Style>
+                            <Style Selector="Border:pointerover">
+                                <Setter Property="Background" Value="White"/>
+                                <Setter Property="RenderTransform" Value="scale(1.05)"/>
+                            </Style>
+                        </Border.Styles>
+                        <Panel>
+                            <Button Foreground="White"
+                                    Click="CloseGame_OnClick"
+                                    PointerEntered="StopHibernation_OnPointerEntered"
+                                    Cursor="Hand"
+                                    CornerRadius="0"
+                                    HorizontalAlignment="Stretch"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    Background="#FF1E1E"
+                                    Height="38"
+                                    FontSize="17"
+                                    TextElement.FontFamily="{StaticResource VCR}">
+                                <Button.Styles>
+                                    <Style Selector="Button">
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </Style>
+                                    <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                    </Style>
+                                    <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="Background" Value="#CC0000"/>
+                                    </Style>
+                                </Button.Styles>
+                                Close The Game
+                            </Button>
+                        </Panel>
+                    </Border>
+
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+    </Panel>
+</UserControl>

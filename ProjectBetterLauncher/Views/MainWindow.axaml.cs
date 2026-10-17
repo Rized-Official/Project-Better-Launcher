@@ -54,6 +54,7 @@ public partial class MainWindow : Window
     private string _pakFileName = DefaultPakFileName;
     private bool _needsDownload = false;
     private bool _isDownloading = false;
+    private bool _isHibernating = false;
 
     public static bool IsProcessRunning(string processName)
     {
@@ -130,10 +131,50 @@ public partial class MainWindow : Window
         await CheckForUpdatesAsync();
     }
 
+    public void EnterHibernation()
+    {
+        if (_isHibernating) return;
+        _isHibernating = true;
+
+        BackgroundImage.Classes.Remove("bg");
+
+        if (BackgroundImage.Source is IDisposable oldBitmap)
+        {
+            BackgroundImage.Source = null;
+            oldBitmap.Dispose();
+        }
+
+        Settings.IsVisible = false;
+        Changelog.IsVisible = false;
+        MainContentPanel.IsVisible = false;
+        Hibernation.IsVisible = true;
+
+        TopBar.SetState("Hibernating");
+
+        GC.Collect();
+        GC.WaitForPendingFinalizers();
+        GC.Collect();
+    }
+
+    public void ExitHibernation()
+    {
+        if (!_isHibernating) return;
+        _isHibernating = false;
+
+        Hibernation.IsVisible = false;
+        MainContentPanel.IsVisible = true;
+        BottomLeftButtonsPanel.IsVisible = true;
+
+        LoadBackground();
+        ApplyBackgroundAnimationState();
+
+        TopBar.SetState(StateAtTheMoment);
+    }
+
     public void ApplyBackgroundAnimationState()
     {
         _currentSettings = JsonStorageService.Load(SettingsFile, _currentSettings);
-        if (_currentSettings.BackgroundAnimation)
+        if (_currentSettings.BackgroundAnimation && !_isHibernating)
         {
             if (!BackgroundImage.Classes.Contains("bg"))
                 BackgroundImage.Classes.Add("bg");
@@ -472,6 +513,7 @@ public partial class MainWindow : Window
         else
         {
             StatusText.Text = "Launched!";
+            EnterHibernation();
         }
     }
     
@@ -479,6 +521,8 @@ public partial class MainWindow : Window
     {
         try
         {
+            ExitHibernation();
+
             Process[] processes = Process.GetProcessesByName(GameProcessName);
 
             foreach (var process in processes)
@@ -545,6 +589,7 @@ public partial class MainWindow : Window
                 _gameWatcher.Stop();
 
                 StateAtTheMoment = "In Launcher";
+                ExitHibernation();
                 TopBar.SetState(StateAtTheMoment);
                 StopButton.IsVisible = false;
                 PlayButton.IsVisible = true;
