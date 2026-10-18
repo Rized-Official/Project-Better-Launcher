@@ -12,6 +12,7 @@
         <entry key="ProjectBetterLauncher/Views/Opinion.axaml" value="ProjectBetterLauncher/ProjectBetterLauncher.csproj" />
         <entry key="ProjectBetterLauncher/Views/Settings.axaml" value="ProjectBetterLauncher/ProjectBetterLauncher.csproj" />
         <entry key="ProjectBetterLauncher/Views/TopBar.axaml" value="ProjectBetterLauncher/ProjectBetterLauncher.csproj" />
+        <entry key="ProjectBetterLauncher/Views/steam_error.axaml" value="ProjectBetterLauncher/ProjectBetterLauncher.csproj" />
       </map>
     </option>
   </component>
