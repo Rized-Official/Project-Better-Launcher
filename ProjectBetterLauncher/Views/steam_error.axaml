@@ -1,0 +1,213 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
+             x:Class="ProjectBetterLauncher.Views.steam_error"
+             Background="rgba(0,0,0,0.86)">
+    
+    
+    <Panel>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Spacing="14">
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="12">
+                <Rectangle Width="40" Height="3" Fill="#FF1E1E" VerticalAlignment="Center"/>
+                <TextBlock FontFamily="{StaticResource Cartoon}"
+                           HorizontalAlignment="Center"
+                           Foreground="White"
+                           FontSize="24"
+                           TextAlignment="Center"
+                           Text="STEAM REQUIRED">
+                    <TextBlock.Effect>
+                        <DropShadowEffect BlurRadius="8" Color="Black" Opacity="0.9"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <Rectangle Width="40" Height="3" Fill="#FF1E1E" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <Border BorderBrush="White"
+                    BorderThickness="3"
+                    Width="520"
+                    Background="#070707"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30" Color="Black" Opacity="0.98"/>
+                </Border.Effect>
+
+                <Grid RowDefinitions="Auto, *, Auto">
+                    <Border Grid.Row="0"
+                            Background="#111111"
+                            BorderBrush="rgba(255,255,255,0.22)"
+                            BorderThickness="0, 0, 0, 2"
+                            Padding="22, 14">
+                        <StackPanel Spacing="6" HorizontalAlignment="Center">
+                            <Border Background="rgba(255, 30, 30, 0.15)"
+                                    BorderBrush="#FF1E1E"
+                                    BorderThickness="1"
+                                    Padding="12, 3"
+                                    HorizontalAlignment="Center">
+                                <TextBlock Text="CLIENT NOT RUNNING"
+                                           FontFamily="{StaticResource VCR}"
+                                           FontSize="11"
+                                           Foreground="#FF4444"
+                                           HorizontalAlignment="Center"/>
+                            </Border>
+
+                            <TextBlock Text="STEAM IS NOT OPEN"
+                                       FontFamily="{StaticResource VCR}"
+                                       FontSize="18"
+                                       Foreground="White"
+                                       HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <StackPanel Grid.Row="1"
+                                Spacing="18"
+                                Margin="28, 24, 28, 24"
+                                HorizontalAlignment="Center">
+
+                        <Image Source="avares://ProjectBetterLauncher/Assets/steam_logo.png"
+                               Width="110"
+                               Height="110"
+                               Stretch="Uniform"
+                               HorizontalAlignment="Center">
+                            <Image.Effect>
+                                <DropShadowEffect BlurRadius="15" Color="Black" Opacity="0.9"/>
+                            </Image.Effect>
+                        </Image>
+
+                        <TextBlock Name="ErrorStatusText"
+                                   Text="Steam must be running in the background to launch Project: Better. Please turn on Steam and wait for it to log in."
+                                   FontFamily="{StaticResource VCR}"
+                                   FontSize="14"
+                                   LineHeight="20"
+                                   Foreground="Gray"
+                                   TextAlignment="Center"
+                                   TextWrapping="Wrap"
+                                   Width="420"
+                                   HorizontalAlignment="Center"/>
+
+                        <StackPanel Spacing="10" HorizontalAlignment="Center" Margin="0, 4, 0, 0">
+                            <Border BorderBrush="White"
+                                    BorderThickness="3"
+                                    Width="360"
+                                    Height="42"
+                                    HorizontalAlignment="Center">
+                                <Border.Styles>
+                                    <Style Selector="Border">
+                                        <Setter Property="RenderTransform" Value="scale(1)"/>
+                                        <Setter Property="Transitions">
+                                            <Transitions>
+                                                <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
+                                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.15" Easing="CubicEaseInOut"/>
+                                            </Transitions>
+                                        </Setter>
+                                    </Style>
+                                    <Style Selector="Border:pointerover">
+                                        <Setter Property="Background" Value="White"/>
+                                        <Setter Property="RenderTransform" Value="scale(1.04)"/>
+                                    </Style>
+                                </Border.Styles>
+                                <Panel>
+                                    <Button Name="TurnOnSteamButton"
+                                            Foreground="White"
+                                            Click="TurnOnSteam_OnClick"
+                                            PointerEntered="Button_OnPointerEntered"
+                                            Cursor="Hand"
+                                            CornerRadius="0"
+                                            HorizontalAlignment="Stretch"
+                                            HorizontalContentAlignment="Center"
+                                            VerticalContentAlignment="Center"
+                                            Background="Black"
+                                            Height="36"
+                                            FontSize="16"
+                                            TextElement.FontFamily="{StaticResource VCR}">
+                                        <Button.Styles>
+                                            <Style Selector="Button">
+                                                <Setter Property="Foreground" Value="White"/>
+                                            </Style>
+                                            <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                                <Setter Property="Foreground" Value="Black"/>
+                                            </Style>
+                                            <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                                                <Setter Property="Foreground" Value="White"/>
+                                                <Setter Property="Background" Value="Black"/>
+                                            </Style>
+                                        </Button.Styles>
+                                        Turn On Steam
+                                    </Button>
+                                </Panel>
+                            </Border>
+
+                            <Border BorderBrush="White"
+                                    BorderThickness="3"
+                                    Width="360"
+                                    Height="42"
+                                    HorizontalAlignment="Center">
+                                <Border.Styles>
+                                    <Style Selector="Border">
+                                        <Setter Property="RenderTransform" Value="scale(1)"/>
+                                        <Setter Property="Transitions">
+                                            <Transitions>
+                                                <BrushTransition Property="Background" Duration="0" Easing="CubicEaseInOut"/>
+                                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.15" Easing="CubicEaseInOut"/>
+                                            </Transitions>
+                                        </Setter>
+                                    </Style>
+                                    <Style Selector="Border:pointerover">
+                                        <Setter Property="Background" Value="White"/>
+                                        <Setter Property="RenderTransform" Value="scale(1.04)"/>
+                                    </Style>
+                                </Border.Styles>
+                                <Panel>
+                                    <Button Foreground="White"
+                                            Click="Close_OnClick"
+                                            PointerEntered="Button_OnPointerEntered"
+                                            Cursor="Hand"
+                                            CornerRadius="0"
+                                            HorizontalAlignment="Stretch"
+                                            HorizontalContentAlignment="Center"
+                                            VerticalContentAlignment="Center"
+                                            Background="#FF1E1E"
+                                            Height="36"
+                                            FontSize="16"
+                                            TextElement.FontFamily="{StaticResource VCR}">
+                                        <Button.Styles>
+                                            <Style Selector="Button">
+                                                <Setter Property="Foreground" Value="White"/>
+                                            </Style>
+                                            <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                                <Setter Property="Foreground" Value="Black"/>
+                                            </Style>
+                                            <Style Selector="Button:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                                                <Setter Property="Foreground" Value="White"/>
+                                                <Setter Property="Background" Value="#CC0000"/>
+                                            </Style>
+                                        </Button.Styles>
+                                        Close
+                                    </Button>
+                                </Panel>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Border Grid.Row="2"
+                            Background="#111111"
+                            BorderBrush="rgba(255,255,255,0.18)"
+                            BorderThickness="0, 2, 0, 0"
+                            Padding="14, 10">
+                        <TextBlock Foreground="Yellow"
+                                   FontFamily="{StaticResource VCR}"
+                                   FontSize="11"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Text="Make sure Steam is logged into your account before playing."/>
+                    </Border>
+                </Grid>
+            </Border>
+        </StackPanel>
+    </Panel>
+</UserControl>

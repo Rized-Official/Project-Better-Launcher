@@ -16,7 +16,7 @@ public partial class HowToInstall : UserControl
     private string _hoverSoundPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Sounds", "UI_Button_Hover.wav");
     private string _clickSoundPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Sounds", "UI_Button_Press.wav");
     private bool _canUnderstood = false;
-    private string _videoLink = "https://www.youtube.com/watch?v=_yQcnxqHIh8";
+    private string _videoLink = "https://youtu.be/YaIrUzaNvwI";
     
     private readonly string SettingsFile = Path.Combine("Data", "Settings.json");
     private AppSettings _currentSettings;

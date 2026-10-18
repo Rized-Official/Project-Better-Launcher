@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using ProjectBetterLauncher.Helpers.Json;
@@ -18,6 +19,7 @@ public partial class Settings : UserControl
     
     private readonly string _settingsFile = Path.Combine("Data", "Settings.json");
     private AppSettings _currentSettings;
+    private bool _isInitializing = true;
     
     public Settings()
     {
@@ -26,10 +28,39 @@ public partial class Settings : UserControl
         _currentSettings = JsonStorageService.Load(_settingsFile, new AppSettings());
         DiscordRpcCheckBox.IsChecked = _currentSettings.DiscordRPC;
         BackgroundAnimationCheckBox.IsChecked = _currentSettings.BackgroundAnimation;
+        HibernationCheckBox.IsChecked = _currentSettings.HibernationMode;
+
+        int vol = Math.Clamp(_currentSettings.SoundVolume, 0, 100);
+        VolumeSlider.Value = vol;
+        UpdateVolumeLabel(vol);
+        App.Volume = vol / 100f;
         
         GameLocationText.Text = string.IsNullOrEmpty(_currentSettings.GameLocation)
             ? "Game not found"
             : _currentSettings.GameLocation;
+
+        _isInitializing = false;
+    }
+
+    private void UpdateVolumeLabel(int volume)
+    {
+        if (VolumeValueText != null)
+        {
+            VolumeValueText.Text = volume == 0 ? "MUTED" : $"{volume}%";
+        }
+    }
+
+    private void VolumeSlider_OnValueChanged(object? sender, RangeBaseValueChangedEventArgs e)
+    {
+        int newVolume = (int)Math.Round(e.NewValue);
+        UpdateVolumeLabel(newVolume);
+        App.Volume = newVolume / 100f;
+
+        if (_isInitializing) return;
+
+        _currentSettings = JsonStorageService.Load(_settingsFile, _currentSettings);
+        _currentSettings.SoundVolume = newVolume;
+        JsonStorageService.Save(_settingsFile, _currentSettings);
     }
 
     private void BackButton_OnClick(object? sender, RoutedEventArgs e)
@@ -53,21 +84,38 @@ public partial class Settings : UserControl
 
     private void DiscordRPC_OnIsCheckedChanged(object? sender, RoutedEventArgs e)
     {
+        if (_isInitializing) return;
+
         bool isChecked = DiscordRpcCheckBox.IsChecked ?? false;
 
         TextChangeEffect.IsVisible = true;
+        _currentSettings = JsonStorageService.Load(_settingsFile, _currentSettings);
         _currentSettings.DiscordRPC = isChecked;
         JsonStorageService.Save(_settingsFile, _currentSettings);
     }
 
     private void BackgroundAnimation_OnIsCheckedChanged(object? sender, RoutedEventArgs e)
     {
+        if (_isInitializing) return;
+
         bool isChecked = BackgroundAnimationCheckBox.IsChecked ?? false;
 
+        _currentSettings = JsonStorageService.Load(_settingsFile, _currentSettings);
         _currentSettings.BackgroundAnimation = isChecked;
         JsonStorageService.Save(_settingsFile, _currentSettings);
         
         MainWindow.Instance?.ApplyBackgroundAnimationState();
+    }
+
+    private void Hibernation_OnIsCheckedChanged(object? sender, RoutedEventArgs e)
+    {
+        if (_isInitializing) return;
+
+        bool isChecked = HibernationCheckBox.IsChecked ?? false;
+
+        _currentSettings = JsonStorageService.Load(_settingsFile, _currentSettings);
+        _currentSettings.HibernationMode = isChecked;
+        JsonStorageService.Save(_settingsFile, _currentSettings);
     }
 
     private void WatchTutorial_OnClick(object? sender, RoutedEventArgs e)
@@ -107,6 +155,7 @@ public partial class Settings : UserControl
         
         if (files.Count == 0) return;
         
+        _currentSettings = JsonStorageService.Load(_settingsFile, _currentSettings);
         _currentSettings.BackgroundName = "background.jpg";
             
         var selectedFile = files[0];
@@ -173,6 +222,8 @@ public partial class Settings : UserControl
         _currentSettings.BackgroundName = "defaultbackground.jpg";
         _currentSettings.AcceptedInstalled = false;
         _currentSettings.BackgroundAnimation = true;
+        _currentSettings.HibernationMode = true;
+        _currentSettings.SoundVolume = 100;
         _currentSettings.LastSeenChangelogVersion = "NONE";
         
         JsonStorageService.Save(_settingsFile, _currentSettings);

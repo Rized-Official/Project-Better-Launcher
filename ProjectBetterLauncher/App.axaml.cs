@@ -1,66 +1,58 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using ProjectBetterLauncher.ViewModels;
-using ProjectBetterLauncher.Views;
-using DiscordRPC;
-using System.Diagnostics;
 using System;
 using System.IO;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using NAudio.Wave;
-using ProjectBetterLauncher.Helpers.Discord.RPC;
 
 namespace ProjectBetterLauncher;
 
 public partial class App : Application
 {
-    public string HoverSoundPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Sounds", "UI_Button_Hover.wav");
-    public string ClickSound = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Sounds", "UI_Button_Press.wav");
+    public static float Volume { get; set; } = 1.0f;
 
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
     }
-    
-    // On started basicly
+
     public override void OnFrameworkInitializationCompleted()
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new MainWindow
-            {
-                DataContext = new MainViewModel(),
-            };
+            desktop.MainWindow = new Views.MainWindow();
         }
-        
+
         base.OnFrameworkInitializationCompleted();
     }
 
-    public static void PlaySound(string path)
+    public static void PlaySound(string filePath)
     {
-        Task.Run(() =>
-        {
-            try
-            {
-                using (var audioFile = new AudioFileReader(path))
-                using (var outputDevice = new WaveOutEvent())
-                {
-                    outputDevice.Init(audioFile);
-                    outputDevice.Play();
+        if (Volume <= 0.001f || !File.Exists(filePath))
+            return;
 
-                    while (outputDevice.PlaybackState == PlaybackState.Playing)
-                    {
-                        System.Threading.Thread.Sleep(100);
-                    }
+        try
+        {
+            byte[] wavBytes = File.ReadAllBytes(filePath);
+            float vol = Math.Clamp(Volume, 0f, 1f);
+            
+            if (vol < 0.99f && wavBytes.Length > 44)
+            {
+                for (int i = 44; i + 1 < wavBytes.Length; i += 2)
+                {
+                    short sample = BitConverter.ToInt16(wavBytes, i);
+                    short scaled = (short)Math.Clamp(sample * vol, short.MinValue, short.MaxValue);
+                    wavBytes[i] = (byte)(scaled & 0xFF);
+                    wavBytes[i + 1] = (byte)((scaled >> 8) & 0xFF);
                 }
             }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-            }
-        });
+
+            using var ms = new MemoryStream(wavBytes);
+            using var player = new System.Media.SoundPlayer(ms);
+            player.Play();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error playing sound: {ex.Message}");
+        }
     }
 }

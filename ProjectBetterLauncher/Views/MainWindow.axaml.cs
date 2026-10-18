@@ -146,6 +146,7 @@ public partial class MainWindow : Window
 
         Settings.IsVisible = false;
         Changelog.IsVisible = false;
+        SteamError.IsVisible = false;
         MainContentPanel.IsVisible = false;
         Hibernation.IsVisible = true;
 
@@ -449,9 +450,22 @@ public partial class MainWindow : Window
         }
     }
 
+    private void ShowSteamErrorPopup()
+    {
+        BottomLeftButtonsPanel.IsVisible = false;
+        TopBar.SetState("Steam Error");
+        SteamError.IsVisible = true;
+    }
+
     private async void PlayButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         App.PlaySound(_clickSoundPath);
+
+        if (!IsProcessRunning("steam"))
+        {
+            ShowSteamErrorPopup();
+            return;
+        }
 
         if (_needsDownload)
         {
@@ -465,6 +479,12 @@ public partial class MainWindow : Window
 
     private async void OpenGame()
     {
+        if (!IsProcessRunning("steam"))
+        {
+            ShowSteamErrorPopup();
+            return;
+        }
+
         PlayButton.IsVisible = false;
         StopButton.IsVisible = true;
         
@@ -492,11 +512,7 @@ public partial class MainWindow : Window
             .AddText("Please wait")
             .AddButton(new ToastButton()
                 .SetContent("Okay")
-            )
-            .AddButton(new ToastButton()
-                .SetContent("Close The Game")
-                .AddArgument("action", "cancel")
-                .SetBackgroundActivation()
+                .SetDismissActivation()
             )
             .Show();
 
@@ -513,7 +529,12 @@ public partial class MainWindow : Window
         else
         {
             StatusText.Text = "Launched!";
-            EnterHibernation();
+            
+            _currentSettings = JsonStorageService.Load(SettingsFile, _currentSettings);
+            if (_currentSettings.HibernationMode)
+            {
+                EnterHibernation();
+            }
         }
     }
     

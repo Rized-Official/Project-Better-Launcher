@@ -72,7 +72,7 @@
                         </TextBlock>
                         
                         <NativeWebView Name="NativeWebView" 
-                                       Source="https://www.youtube.com/watch?v=_yQcnxqHIh8" 
+                                       Source="https://youtu.be/YaIrUzaNvwI" 
                                        Width="580" 
                                        Height="300"/>
                     </Panel>

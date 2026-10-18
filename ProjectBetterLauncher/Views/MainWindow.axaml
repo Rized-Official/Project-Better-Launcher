@@ -415,5 +415,6 @@
         <views:HowToInstall IsVisible="False" Name="HowToInstall"></views:HowToInstall>
         <views:Opinion Name="Opinion" IsVisible="False"></views:Opinion>
         <views:Hibernation IsVisible="False" Name="Hibernation"></views:Hibernation>
+        <views:steam_error IsVisible="False" Name="SteamError"></views:steam_error>
     </Panel>
 </Window>

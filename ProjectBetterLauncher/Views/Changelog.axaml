@@ -319,7 +319,7 @@
                                 <Setter Property="Background" Value="#CC0000"/>
                             </Style>
                         </Button.Styles>
-                        Close [X]
+                        Close
                     </Button>
                 </Panel>
             </Border>

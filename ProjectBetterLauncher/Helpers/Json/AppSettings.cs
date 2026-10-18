@@ -16,5 +16,9 @@ public class AppSettings
 
     public bool BackgroundAnimation { get; set; } = true;
 
+    public bool HibernationMode { get; set; } = true;
+
+    public int SoundVolume { get; set; } = 100;
+
     public string LastSeenChangelogVersion { get; set; } = "NONE";
 }
