@@ -128,7 +128,7 @@
                                     BorderThickness="1"
                                     Padding="12, 3"
                                     HorizontalAlignment="Center">
-                                <TextBlock Text="LAUNCHER BUILD: v0.0.1"
+                                <TextBlock Text="LAUNCHER BUILD: v0.0.2"
                                            FontFamily="{StaticResource VCR}"
                                            FontSize="11"
                                            Foreground="Yellow"
